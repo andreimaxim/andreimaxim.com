@@ -3,13 +3,10 @@ title: "Thoughts on software development"
 author: "Andrei Maxim"
 
 plugins:
-  - jekyll-postcss
-
-postcss:
-  cache: false
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
 
 exclude:
-  - package.json
-  - package-lock.json
-  - postcss.config.js
-  - tailwind.config.js
+  - LICENSE.md
+  - README.md
