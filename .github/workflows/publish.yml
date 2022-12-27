@@ -10,14 +10,20 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-        
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - run: npm install
             
       - name: Build site
-        run: JEKYLL_ENV=production bundle exec jekyll build --verbose --trace
+        run: bundle exec jekyll build --verbose --trace
         
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1

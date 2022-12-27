@@ -36,6 +36,7 @@ GEM
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-paginate (1.1.0)
+    jekyll-postcss-v2 (1.0.1)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
     jekyll-sitemap (1.4.0)
@@ -77,6 +78,7 @@ DEPENDENCIES
   jekyll-compose (~> 0.12)
   jekyll-feed (~> 0.17)
   jekyll-paginate (~> 1.1)
+  jekyll-postcss-v2
   jekyll-sitemap (~> 1.4)
   webrick
 
