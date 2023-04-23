@@ -18,12 +18,17 @@
     <link rel="me" href="https://twitter.com/rockatanescu"/>
     <link rel="me" href="https://github.com/andreimaxim"/>
     <link rel="me" href="https://www.linkedin.com/in/andreimaxim/"/>
+
+    {% include typography.liquid %}
+
 </head>
 <body class="bg-white text-gray-800">
-{% include header.liquid %}
+<div class="grid grid-cols-1 mx-auto w-full max-w-6xl mt-6">
+    {% include header.liquid %}
 
-<div class="container mx-auto px-4">
-    {{ content }}
+    <div class="container prose max-w-none mx-auto px-4">
+        {{ content }}
+    </div>
 </div>
 </body>
 </html>
