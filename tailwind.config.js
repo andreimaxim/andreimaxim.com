@@ -5,7 +5,7 @@ module.exports = {
         './_includes/**/*.liquid',
         './_layouts/**/*.liquid',
         './_posts/**/*.md',
-        './*.md'
+        './*.html'
     ],
     theme: {
         fontFamily: {

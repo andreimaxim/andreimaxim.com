@@ -1,4 +1,14 @@
 ---
-layout: default
+layout: page
 title: Writings
 ---
+<div class="container mx-auto px-4">
+    {% for post in site.posts %}
+    <article class="mb-12">
+        <h4 class="">
+            <a href="{{ post.url | relative_url }}" class="">{{ post.title }}</a>
+        </h4>
+        <p>{{ post.date | date: "%B %e, %Y" }}</p>
+    </article>
+    {% endfor %}
+</div>
