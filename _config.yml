@@ -2,6 +2,8 @@ url: "https://andreimaxim.com"
 title: "Andrei Maxim"
 author: "Andrei Maxim"
 
+permalink: /:year/:short_month/:day/:title/
+
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
