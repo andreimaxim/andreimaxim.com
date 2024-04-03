@@ -12,7 +12,6 @@ gem "jekyll-feed", "~> 0.17"
 # configuration.
 group :jekyll_plugins do
   gem "jekyll-compose", "~> 0.12"
-  gem "jekyll-postcss-v2"
 end
 
-gem "webrick"
+gem "puma"
