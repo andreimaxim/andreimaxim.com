@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-<head>
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<html lang="en">
+    <head>
+        <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    {% if page.description %}
-        <meta name="description" content="{{ page.description }}"/>
-    {% else %}
-        <meta name="description" content="{{ site.description }}"/>
-    {% endif %}
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        {% if page.description %}
+            <meta name="description" content="{{ page.description }}"/>
+        {% else %}
+            <meta name="description" content="{{ site.description }}"/>
+        {% endif %}
 
-    <link rel="stylesheet" href="/assets/css/style.css"/>
+        <link rel="stylesheet" href="/assets/css/style.css"/>
 
-    <link rel="canonical" href="{{ page.url | absolute_url }}"/>
+        <link rel="canonical" href="{{ page.url | absolute_url }}"/>
 
-    <link rel="me" href="https://twitter.com/rockatanescu"/>
-    <link rel="me" href="https://github.com/andreimaxim"/>
-    <link rel="me" href="https://www.linkedin.com/in/andreimaxim/"/>
-
-    {% include typography.liquid %}
-</head>
-<body class="bg-white text-gray-800">
-<div class="mt-6">
-    {{ content }}
-</div>
-</body>
+        <link rel="me" href="https://twitter.com/rockatanescu"/>
+        <link rel="me" href="https://github.com/andreimaxim"/>
+        <link rel="me" href="https://www.linkedin.com/in/andreimaxim/"/>
+    </head>
+    <body class="bg-white text-gray-800">
+        <div class="mt-6">
+            {{ content }}
+        </div>
+    </body>
 </html>
