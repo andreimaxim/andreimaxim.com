@@ -27,3 +27,24 @@ module Jekyll
     end
   end
 end
+
+
+Jekyll::Hooks.register(:site, :pre_render) do |site|
+  site.static_files_to_write.each do |file|
+    Jekyll::DriveShaft::Assembly.add(
+      url: file.url,
+      source_path: file.path,
+      destination_path: file.destination(site.dest)
+    )
+  end
+end
+
+Jekyll::Hooks.register([:documents, :posts, :pages], :post_render) do |document|
+  Jekyll::DriveShaft::Assembly.assets.each do |url, asset|
+    document.output.gsub!(url, asset.digested_url)
+  end
+end
+
+Jekyll::Hooks.register(:site, :post_write) do
+  Jekyll::DriveShaft::Assembly.fingerprint_assets!
+end
