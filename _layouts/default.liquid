@@ -14,11 +14,21 @@
 
         <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
+        <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}" />
+        <meta property="og:url" content="{{ page.url | absolute_url }}" />
+        <meta property="og:image" content="/assets/img/andreimaxim.jpg" />
+        <meta property="og:type" content="article" />
+        {%- if page.description -%}
+            <meta property="og:description" content="{{ page.description }}" />
+        {%- else -%}
+            <meta name="og:description" content="{{ site.description }}" />
+        {%-  endif -%}
+
         <link rel="me" href="https://twitter.com/rockatanescu" />
         <link rel="me" href="https://github.com/andreimaxim" />
         <link rel="me" href="https://www.linkedin.com/in/andreimaxim/" />
 
-        <link rel="stylesheet" href="/assets/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="/assets/css/main.css" type="text/css" media="screen" />
     </head>
     <body>
         <div>
