@@ -4,11 +4,6 @@ author: "Andrei Maxim"
 
 permalink: /:year/:short_month/:day/:title/
 
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-feed
-
 exclude:
   - LICENSE.md
   - README.md
