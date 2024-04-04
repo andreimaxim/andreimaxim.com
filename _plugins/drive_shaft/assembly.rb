@@ -28,7 +28,6 @@ module Jekyll
   end
 end
 
-
 Jekyll::Hooks.register(:site, :pre_render) do |site|
   site.static_files_to_write.each do |file|
     Jekyll::DriveShaft::Assembly.add(
