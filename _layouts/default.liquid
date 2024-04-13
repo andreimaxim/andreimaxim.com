@@ -24,6 +24,8 @@
             <meta name="og:description" content="{{ site.description }}" />
         {%-  endif -%}
 
+        <meta name="color-scheme" content="light dark" />
+
         <link rel="me" href="https://twitter.com/rockatanescu" />
         <link rel="me" href="https://github.com/andreimaxim" />
         <link rel="me" href="https://www.linkedin.com/in/andreimaxim/" />
@@ -31,8 +33,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" type="text/css" />
     </head>
     <body>
-        <div>
+        <main class="container">
             {{ content }}
-        </div>
+        </main>
     </body>
 </html>
