@@ -39,7 +39,7 @@ Jekyll::Hooks.register(:site, :pre_render) do |site|
   end
 end
 
-Jekyll::Hooks.register(:documents, :post_render) do |document|
+Jekyll::Hooks.register([:documents, :pages], :post_render) do |document|
   Jekyll::DriveShaft::Assembly.assets.each do |url, asset|
     document.output.gsub!(url, asset.digested_url)
   end
