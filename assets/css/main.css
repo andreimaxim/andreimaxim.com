@@ -33,6 +33,7 @@ html {
             border-radius: 3px;
             padding: 1rem 3rem 2rem;
             box-shadow: 5px 5px 7px #e5e7eb;
+            margin-bottom: 3rem;
 
             h2 {
                 text-align: center;
@@ -104,6 +105,10 @@ html {
         .content {
             font-size: 1.2rem;
 
+            p {
+                line-height: 2rem;
+            }
+
             p code {
                 border: 1px solid #e5e7eb;
                 background-color: #f9fafb;
@@ -115,7 +120,9 @@ html {
                 padding: 1rem;
                 border: 1px solid #e5e7eb;
                 border-radius: 3px;
+                background-color: #f9fafb;
                 font-size: 1rem;
+                line-height: 1.8rem;
             }
         }
     }
