@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<head>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        {%- if page.description -%}
-            <meta name="description" content="{{ page.description }}" />
-        {%- else -%}
-            <meta name="description" content="{{ site.description }}" />
-        {%-  endif -%}
+    {%- if page.description -%}
+        <meta name="description" content="{{ page.description }}"/>
+    {%- else -%}
+        <meta name="description" content="{{ site.description }}"/>
+    {%- endif -%}
 
-        <link rel="canonical" href="{{ page.url | absolute_url }}" />
+    <link rel="canonical" href="{{ page.url | absolute_url }}"/>
 
-        <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}" />
-        <meta property="og:url" content="{{ page.url | absolute_url }}" />
-        <meta property="og:image" content="/assets/img/andreimaxim.jpg" />
-        <meta property="og:type" content="article" />
-        {%- if page.description -%}
-            <meta property="og:description" content="{{ page.description }}" />
-        {%- else -%}
-            <meta name="og:description" content="{{ site.description }}" />
-        {%-  endif -%}
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}"/>
+    <meta property="og:url" content="{{ page.url | absolute_url }}"/>
+    <meta property="og:image" content="/assets/img/andreimaxim.jpg"/>
+    <meta property="og:type" content="article"/>
+    {%- if page.description -%}
+        <meta property="og:description" content="{{ page.description }}"/>
+    {%- else -%}
+        <meta name="og:description" content="{{ site.description }}"/>
+    {%- endif -%}
 
-        <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="light dark"/>
 
-        <link rel="me" href="https://twitter.com/rockatanescu" />
-        <link rel="me" href="https://github.com/andreimaxim" />
-        <link rel="me" href="https://www.linkedin.com/in/andreimaxim/" />
+    <link rel="me" href="https://twitter.com/rockatanescu"/>
+    <link rel="me" href="https://github.com/andreimaxim"/>
+    <link rel="me" href="https://www.linkedin.com/in/andreimaxim/"/>
 
-        <link rel="stylesheet" href="/assets/css/pico.min.css" type="text/css" />
-    </head>
-    <body>
-        <main class="container">
-            {{ content }}
-        </main>
-    </body>
+    <link rel="stylesheet" href="/assets/css/main.css"/>
+</head>
+<body>
+<main class="container">
+    {{ content }}
+</main>
+</body>
 </html>
