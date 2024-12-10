@@ -3,7 +3,7 @@ title: "Andrei Maxim"
 author: "Andrei Maxim"
 description: "Andrei Maxim's digital garden with writings about Ruby, Rails, HTML, CSS and JavaScript."
 
-permalink: /:year/:short_month/:i_day/:title/
+permalink: /posts/:slug
 
 exclude:
   - LICENSE.md
