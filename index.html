@@ -15,7 +15,7 @@ title: "Home"
 <section>
     {% for post in site.posts %}
     <article>
-        <h3>{{ post.date | date: "%B, %d, %Y" }}</h3>
+        <h3>{{ post.date | date: "%B %e, %Y" }}</h3>
         <h2>{{ post.title }}</h2>
 
         <p>{{ post.excerpt }}</p>
