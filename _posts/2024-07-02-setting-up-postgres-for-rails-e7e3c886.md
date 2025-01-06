@@ -2,8 +2,7 @@
 layout: post
 title: Setting Up Postgres for Rails
 ---
-
-If you are setting up a Rails application for development and you need to run Postgres locally, 
+If you are setting up a Rails application for development, and you need to run Postgres locally, 
 you have two options:
 1. Install Postgres using the operating system package manager (e.g. `apt get`)
 2. Start a PostgreSQL container

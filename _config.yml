@@ -3,6 +3,8 @@ title: "Andrei Maxim"
 author: "Andrei Maxim"
 description: "Andrei Maxim's digital garden with writings about Ruby, Rails, HTML, CSS and JavaScript."
 
+
+excerpt_separator: "\n\n"
 permalink: /posts/:slug
 
 exclude:
