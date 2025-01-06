@@ -5,6 +5,14 @@ description: "Andrei Maxim's digital garden with writings about Ruby, Rails, HTM
 
 permalink: /posts/:slug
 
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
 exclude:
   - LICENSE.md
   - README.md
