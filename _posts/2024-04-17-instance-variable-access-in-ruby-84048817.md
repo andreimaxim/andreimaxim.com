@@ -83,7 +83,8 @@ end
 
 john = Person.new first_name: "John", last_name: "Doe"
 john.name # => "John Doe"
-john.first_name # => NoMethodError: private method `first_name' called for an instance of Person
+john.first_name # => NoMethodError: private method `first_name' called for 
+                #    an instance of Person
 ```
 
 While it may seem that the main difference between _indirect variable access_ and
