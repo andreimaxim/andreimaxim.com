@@ -147,6 +147,7 @@ body {
             }
 
             pre.highlight {
+                overflow-y: hidden;
                 padding: 1rem;
                 border: 1px solid #e5e7eb;
                 border-radius: 3px;
