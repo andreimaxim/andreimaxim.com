@@ -2,7 +2,6 @@
 layout: post
 title: In Relentless Pursuit of RESTful Webhooks
 ---
-
 I've recently seen a code sample about working with Stripe webhooks in Rails 
 applications and I've noticed the following code in the controller:
 
