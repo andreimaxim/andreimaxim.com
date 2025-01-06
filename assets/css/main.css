@@ -1,9 +1,27 @@
+:root {
+    --content-width: 98rem;
+    --font-family: -apple-system, BlinkMacSystemFont, Aptos, Roboto, "Segoe UI", Helvetica, Arial;
+    --font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    --font-size-base: 11px;
+    --font-size-x-small: 1.2rem;
+    --font-size-small: 1.4rem;
+    --font-size-medium: 1.6rem;
+    --font-size-large: 1.8rem;
+    --font-size-x-large: 2.4rem;
+    --font-size-xx-large: 3.4rem;
+}
+
 html {
-    font-family: system-ui;
+    font-family: var(--font-family), sans-serif;
+    font-size: var(--font-size-base);
+}
+
+body {
+    padding: 1.6rem;
 }
 
 .container {
-    width: 800px;
+    max-width: var(--content-width);
     margin: 0 auto;
 
     header {
@@ -24,6 +42,7 @@ html {
         h2 {
             text-align: center;
             margin-bottom: 4rem;
+            font-size: var(--font-size-medium);
         }
     }
 
@@ -34,6 +53,7 @@ html {
             padding: 1rem 3rem 2rem;
             box-shadow: 5px 5px 7px #e5e7eb;
             margin-bottom: 3rem;
+            font-size: var(--font-size-medium);
 
             h2 {
                 text-align: center;
@@ -42,7 +62,7 @@ html {
 
             h3 {
                 margin-top: 0;
-                font-size: 1em;
+                font-size: var(--font-size-small);
                 text-align: center;
                 font-weight: normal;
                 color: #6b7280;
@@ -50,6 +70,7 @@ html {
 
             .more {
                 padding-top: 2rem;
+                font-size: var(--font-size-small);
                 text-align: center;
 
                 a {
@@ -89,21 +110,21 @@ html {
         margin-bottom: 2rem;
 
         h1 {
-            font-size: 3rem;
+            font-size: var(--font-size-xx-large);
             text-align: center;
             margin-bottom: 3rem;
             margin-top: 1rem;
         }
 
         h2 {
-            font-size: 1em;
+            font-size: var(--font-size-small);
             text-align: center;
             font-weight: normal;
             color: #6b7280;
         }
 
         .content {
-            font-size: 1.2rem;
+            font-size: var(--font-size-medium);
 
             p {
                 line-height: 2rem;
@@ -113,7 +134,8 @@ html {
                 border: 1px solid #e5e7eb;
                 background-color: #f9fafb;
                 padding: 3px;
-                font-size: 1rem;
+                font-size: var(--font-size-small);
+                font-family: var(--font-family-mono), monospace;
             }
 
             pre.highlight {
@@ -121,7 +143,8 @@ html {
                 border: 1px solid #e5e7eb;
                 border-radius: 3px;
                 background-color: #f9fafb;
-                font-size: 1rem;
+                font-size: var(--font-size-small);
+                font-family: var(--font-family-mono), monospace;
                 line-height: 1.8rem;
             }
         }
