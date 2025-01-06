@@ -1,5 +1,8 @@
 :root {
     --content-width: 75rem;
+
+    --border-color: #e5e7eb;
+
     --font-family: -apple-system, BlinkMacSystemFont, Aptos, Roboto, "Segoe UI", Helvetica, Arial;
     --font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     --font-size-base: 11px;
@@ -60,10 +63,10 @@ body {
 
     section {
         article {
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--border-color);
             border-radius: 3px;
             padding: 1rem 3rem 2rem;
-            box-shadow: 5px 5px 7px #e5e7eb;
+            box-shadow: 5px 5px 7px var(--border-color);
             margin-bottom: 3rem;
             font-size: var(--font-size-medium);
 
@@ -86,7 +89,7 @@ body {
                 text-align: center;
 
                 a {
-                    border: 1px solid #e5e7eb;
+                    border: 1px solid var(--border-color);
                     border-radius: 1rem;
                     padding: 0.5rem 1rem;
                     text-decoration: none;
@@ -137,30 +140,32 @@ body {
 
         .content {
             font-size: var(--font-size-medium);
-
-            p code {
-                border: 1px solid #e5e7eb;
-                background-color: #f9fafb;
-                padding: 3px;
-                font-size: var(--font-size-small);
-                font-family: var(--font-family-mono), monospace;
-            }
-
-            pre.highlight {
-                overflow-y: hidden;
-                padding: 1rem;
-                border: 1px solid #e5e7eb;
-                border-radius: 3px;
-                background-color: #f9fafb;
-                font-size: var(--font-size-small);
-                font-family: var(--font-family-mono), monospace;
-                line-height: 1.8rem;
-            }
         }
     }
 }
 
 /* Syntax highlighting */
+code {
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    padding: 3px;
+    font-size: var(--font-size-x-small);
+    font-family: var(--font-family-mono), monospace;
+}
+
+pre.highlight {
+    overflow-y: hidden;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 3px;
+    background-color: #f9fafb;
+
+    code {
+        border: none;
+        padding: 0;
+    }
+}
+
 .highlight .hll {
     background-color: #ffffcc
 }
