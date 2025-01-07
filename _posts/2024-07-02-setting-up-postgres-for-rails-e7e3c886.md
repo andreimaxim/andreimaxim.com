@@ -9,17 +9,17 @@ you have two options:
 
 Installing locally is fairly trivial and involves just two commands:
 
-```shell
-sudo apt install postgresql
-sudo systemctl enable postgresql
+```shell-session
+$ sudo apt install postgresql
+$ sudo systemctl enable postgresql
 ```
 
 Once PostgreSQL is installed and running, you only need to create a Postgres role that matches 
 your OS username and a default database since Postgres will raise a 
 `FATAL:  database "<your_account_name>" does not exist` error unless you specify a database:
 
-```shell
-sudo -u postgres psql
+```shell-session
+$ sudo -u postgres psql
 ```
 
 and write the following SQL commands:
@@ -35,13 +35,9 @@ _Note: This approach also works in WSL2 since [September 2022, when Microsoft ad
 
 The other option is to start a container:
 
-```shell
-sudo docker run -d \
-  --restart unless-stopped \
-  -p "127.0.0.1:5432:5432" \
-  --name=postgres14 \
-  -e POSTGRES_PASSWORD=password \
-  postgres:14
+```shell-session
+$ sudo docker run -d --restart unless-stopped -p "127.0.0.1:5432:5432" \
+    --name=postgres17 -e POSTGRES_PASSWORD=password postgres:17
 ```
 
 If you have a vanilla `config/database.yml` file (e.g. after running `rails new your_app`), ActiveRecord will try 
