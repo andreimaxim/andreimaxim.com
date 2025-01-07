@@ -145,7 +145,6 @@ code {
     background-color: #f9fafb;
     padding: 3px;
     font-size: var(--font-size-x-small);
-    font-family: var(--font-family-mono), monospace;
 }
 
 pre {
