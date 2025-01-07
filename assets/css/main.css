@@ -140,6 +140,10 @@ body {
 
         .content {
             font-size: var(--font-size-medium);
+
+            img {
+                width: 100%;
+            }
         }
     }
 }
