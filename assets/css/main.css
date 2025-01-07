@@ -129,7 +129,7 @@ body {
             color: #6b7280;
         }
 
-        .content {
+        > .content {
             font-size: var(--font-size-medium);
 
             img {
