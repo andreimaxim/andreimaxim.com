@@ -37,7 +37,7 @@ The other option is to start a container:
 
 ```shell-session
 $ sudo docker run -d --restart unless-stopped -p "127.0.0.1:5432:5432" \
-    --name=postgres17 -e POSTGRES_PASSWORD=password postgres:17
+    --shm-size=1g --name=postgres17 -e POSTGRES_PASSWORD=password postgres:17
 ```
 
 If you have a vanilla `config/database.yml` file (e.g. after running `rails new your_app`), ActiveRecord will try 
