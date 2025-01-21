@@ -93,7 +93,7 @@ body {
             padding: 1rem 3rem 2rem;
             box-shadow: 5px 5px 7px var(--card-shadow-color);
             margin-bottom: 3rem;
-            font-size: var(--font-size-medium);
+            font-size: var(--font-size-large);
 
             h2 {
                 text-align: center;
@@ -110,7 +110,7 @@ body {
 
             .more {
                 padding-top: 2rem;
-                font-size: var(--font-size-small);
+                font-size: var(--font-size-medium);
                 text-align: center;
 
                 a {
@@ -164,7 +164,7 @@ body {
         }
 
         > .content {
-            font-size: var(--font-size-medium);
+            font-size: var(--font-size-large);
 
             img {
                 width: 100%;
@@ -178,7 +178,7 @@ code {
     border: 1px solid var(--code-border-color);
     background-color: var(--code-background-color);
     padding: 3px;
-    font-size: var(--font-size-x-small);
+    font-size: var(--font-size-small);
 }
 
 pre {
