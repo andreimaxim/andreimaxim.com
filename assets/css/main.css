@@ -169,6 +169,16 @@ body {
             img {
                 width: 100%;
             }
+
+
+            a.footnote {
+                font-size: var(--font-size-small);
+                text-decoration: none;
+            }
+
+            .footnotes {
+                font-size: var(--font-size-small);
+            }
         }
     }
 }
