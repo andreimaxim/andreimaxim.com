@@ -18,7 +18,7 @@ the crypto ecosystem, the only thing that really took off was the ability to cre
 [erc20]: https://eips.ethereum.org/EIPS/eip-20
 
 I've been a paid LLM user since the GPT-4 was launched and I use it often as a programmer surrogate because I found a lot of value 
-from writing down my ideas. But recently I've seen more and more projects adopt [a `llms.txt` file][llmstxt] in order to help machines
+from writing down my ideas. But recently I've seen more and more projects adopt [a llms.txt file][llmstxt] in order to help machines
 parse its contents.
 
 [llmstxt]: https://llmstxt.org/
