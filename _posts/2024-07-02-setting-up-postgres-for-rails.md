@@ -1,11 +1,14 @@
 ---
 layout: post
-title: Setting Up Postgres for Rails
+title: Setting Up Postgres for Rails Development In WSL2
 ---
 If you are setting up a Rails application for development, and you need to run Postgres locally, 
 you have two options:
 1. Install Postgres using the operating system package manager (e.g. `apt get`)
 2. Start a PostgreSQL container
+
+
+### Using the Ubuntu package manager
 
 Installing locally is fairly trivial and involves just two commands:
 
@@ -33,12 +36,20 @@ _Note: This approach also works in WSL2 since [September 2022, when Microsoft ad
 
 [wsl-systemd]: https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/
 
+
+### Using Docker
+
 The other option is to start a container:
 
 ```shell-session
 $ sudo docker run -d --restart unless-stopped -p "127.0.0.1:5432:5432" \
-    --shm-size=1g --name=postgres17 -e POSTGRES_PASSWORD=password postgres:17
+    --shm-size=1g --name=postgres17 -e POSTGRES_HOST_AUTH_METHOD=trust postgres:17
 ```
+
+Using the `POSTGRES_HOST_AUTH_METHOD=trust` bypasses the authentication mechanism.
+
+
+### Environment Variables
 
 If you have a vanilla `config/database.yml` file (e.g. after running `rails new your_app`), ActiveRecord will try 
 to connect to the localhost using a socket instead of the exposed port, causing a `ActiveRecord::ConnectionNotEstablished` 

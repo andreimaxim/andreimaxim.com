@@ -166,6 +166,10 @@ body {
         > .content {
             font-size: var(--font-size-large);
 
+            h3 {
+                margin-top: 4rem;
+            }
+
             img {
                 width: 100%;
             }
