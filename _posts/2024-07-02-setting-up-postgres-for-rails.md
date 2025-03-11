@@ -44,6 +44,7 @@ The other option is to start a container:
 ```shell-session
 $ sudo docker run -d --restart unless-stopped -p "127.0.0.1:5432:5432" \
     --shm-size=1g --name=postgres17 -e POSTGRES_HOST_AUTH_METHOD=trust postgres:17
+    -c "max_locks_per_transaction=128"
 ```
 
 Using the `POSTGRES_HOST_AUTH_METHOD=trust` bypasses the authentication mechanism.
