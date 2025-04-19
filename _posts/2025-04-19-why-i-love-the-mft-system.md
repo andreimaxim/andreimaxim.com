@@ -11,28 +11,39 @@ Unfortunately, the S1R II body is just a tad shorter and a tad bulkier than the 
 
 How bigger are the lenses, you ask? 
 
-![Full-frame vs MFT lenses](/assets/img/2025/full-frame-vs-mft-lenses.jpg)
-
-In the above photo there are three lenses:
-* Sigma 50mm f/1.4 II for the full-frame Panasonic L mount ($849, 670g, 109mm tall)
-* Sigma 56mm f/1.4 for the MFT mount ($529, 280g, 59mm tall)
-* Panasonic Leica 25mm f/1.4 for the MFT mount ($597, 205g, 54mm tall)
+<figure>
+  <img src="/assets/img/2025/full-frame-vs-mft-lenses.jpg" alt="Sigma 50mm FF, Sigma 56mm MFT, and Panasonic Leica 25mm MFT">
+    <figcaption>Sigma 50mm f/1.4 L mount (670g), Sigma 56mm f/1.4 MFT (280g), Panasonic Leica 25mm f/1.4 MFT (205g)</figcaption>
+</figure>
 
 Which one would you carry in your backpack?
 
 The main characteristics (focal length and aperture) of the first two lenses are pretty much identical and the only difference will be given by the MFT sensor, which we can simulate on the full-frame sensor by cropping to 25% in the middle:
 
-![Sigma FF](/assets/img/2025/ff-sigma.jpg)
+<figure>
+  <img src="/assets/img/2025/ff-sigma-cropped-thumb.jpg" alt="Cropped photo with a Sigma 50mm f/1.4 on a Panasonic S1R II">
+    <figcaption>Sigma 50mm f/1.4 DG DN on Panasonic S1R II, cropped to match field of view (<a href="/assets/img/2025/ff-sigma-cropped-full.jpg">full size</a>)</figcaption>
+</figure>
 
-![Sigma MFT](/assets/img/2025/mft-sigma.jpg)
+<figure>
+  <img src="/assets/img/2025/mft-sigma-thumb.jpg" alt="Sigma 56mmm f/1.4 DC DN on a Panasonic G9">
+    <figcaption>Sigma 56mm f/1.4 DC DN on a Panasonic G9 (<a href="/assets/img/2025/mft-sigma-full.jpg">full size</a>)</figcaption>
+</figure>
 
 Can you tell which photo was taken by a 7-year old camera with a crop sensor and which is taken by the state-of-the-art flagship camera? I'd pick the second one, but I'd be wrong.
 
 But what if we take into account the 2x crop and use the 25mm lens on the MFT body, which should generate an identical field of view[^1]? 
 
-![Sigma FF normalized](/assets/img/2025/ff-sigma-normalized.jpg)
 
-![Panasonic Leica MFT normalized](/assets/img/2025/mft-panaleica-normalized.jpg)
+<figure>
+  <img src="/assets/img/2025/ff-sigma-thumb.jpg" alt="Sigma 50mm f/1.4 on a Panasonic S1R II">
+    <figcaption>Sigma 50mm f/1.4 DG DN on Panasonic S1R II (<a href="/assets/img/2025/ff-sigma-full.jpg">full size</a>)</figcaption>
+</figure>
+
+<figure>
+  <img src="/assets/img/2025/mft-panaleica-thumb.jpg" alt="Leica DG Summilux 25mm f/1.4 on a Panasonic G9">
+    <figcaption>Leica DG Summilux 25mm f/1.4 on a Panasonic G9 (<a href="/assets/img/2025/mft-panaleica-full.jpg">full size</a>)</figcaption>
+</figure>
 
 Obviously, the full-frame lens is able to generate more separation of the subject from the background (aka "bokeh"), but can you tell the difference between a 45MP full-frame sensor and a 20MP sensor? I can't.
 

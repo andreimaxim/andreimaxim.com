@@ -176,6 +176,22 @@ body {
                 width: 100%;
             }
 
+            figure {
+                margin: 0;
+                padding: 0;
+
+                figcaption {
+                    color: var(--tailwind-slate-600);
+                    font-size: var(--font-size-small);
+                    text-align: center;
+                    font-style: italic;
+                }
+            }
+
+            figure + figure {
+                margin-top: 1em;
+            }
+
 
             a.footnote {
                 font-size: var(--font-size-small);
