@@ -32,7 +32,7 @@ The main characteristics (focal length and aperture) of the first two lenses are
 
 Can you tell which photo was taken by a 7-year old camera with a crop sensor and which is taken by the state-of-the-art flagship camera? I'd pick the second one, but I'd be wrong.
 
-The other option to get an equivalent perspective [^1] is to use an MFT lens with half the focal distance of the full-frame lens, which is where the Panasonic Leica 25mm lens comes in:
+The other option to get an equivalent perspective[^1] is to use an MFT lens with half the focal distance of the full-frame lens, which is where the Panasonic Leica 25mm lens comes in:
 
 
 <figure>
