@@ -25,6 +25,7 @@
 
 
     --main-background-color: #ffffff;
+    --main-text-color: var(--tailwind-slate-800);
     --border-color: var(--tailwind-slate-200);
     --card-border-color: var(--border-color);
     --card-shadow-color: var(--border-color);
@@ -54,6 +55,7 @@ html {
     line-height: 1.4;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    color: var(--main-text-color);
 }
 
 body {
