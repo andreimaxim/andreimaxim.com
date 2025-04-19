@@ -18,7 +18,7 @@ How bigger are the lenses, you ask?
 
 Which one would you carry in your backpack?
 
-The main characteristics (focal length and aperture) of the first two lenses are pretty much identical, with the exception that the bigger lens targets a sensor four times the size of the MFT sensor. The e<a href="/assets/img/2025/mft-panaleica-full.jpg">fffect is equivalent with a 2x crop, so we can obtain an equivalent perspective[^1] by cropping in the full-frame image:
+The main characteristics (focal length and aperture) of the first two lenses are pretty much identical, with the exception that the bigger lens targets a sensor four times the size of the MFT sensor. The effect is equivalent with a 2x crop, so we can obtain an equivalent perspective[^1] by cropping in the full-frame image:
 
 <figure>
     <img src="/assets/img/2025/ff-sigma-cropped-thumb.jpg" alt="Cropped photo with a Sigma 50mm f/1.4 on a Panasonic S1R II">
