@@ -18,7 +18,7 @@ How bigger are the lenses, you ask?
 
 Which one would you carry in your backpack?
 
-The main characteristics (focal length and aperture) of the first two lenses are pretty much identical, with the exception that the bigger lens targets a sensor four times the size of the MFT sensor. The effect is equivalent with a 2x crop, so we can obtain an equivalent perspective[^1] by cropping in the full-frame image:
+The main characteristics (focal length and aperture) of the first two lenses are pretty much identical, with the exception that the bigger lens targets a sensor four times the size of the MFT sensor. The effect is equivalent with a 2x crop, so we can obtain an equivalent perspective by cropping in the full-frame image:
 
 <figure>
     <img src="/assets/img/2025/ff-sigma-cropped-thumb.jpg" alt="Cropped photo with a Sigma 50mm f/1.4 on a Panasonic S1R II">
@@ -32,7 +32,7 @@ The main characteristics (focal length and aperture) of the first two lenses are
 
 Can you tell which photo was taken by a 7-year old camera with a crop sensor and which is taken by the state-of-the-art flagship camera? I'd pick the second one, but I'd be wrong.
 
-The other option is to use an MFT lens with half the focal distance of the full-frame lens, which is where the Panasonic Leica 25mm lens comes in:
+The other option to get an equivalent perspective [^1] is to use an MFT lens with half the focal distance of the full-frame lens, which is where the Panasonic Leica 25mm lens comes in:
 
 
 <figure>
