@@ -55,7 +55,6 @@ html {
     line-height: 1.4;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    color: var(--main-text-color);
 }
 
 body {
@@ -181,7 +180,6 @@ body {
                 padding: 0;
 
                 figcaption {
-                    color: var(--tailwind-slate-600);
                     font-size: var(--font-size-small);
                     text-align: center;
                     font-style: italic;
