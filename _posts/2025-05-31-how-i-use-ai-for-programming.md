@@ -284,3 +284,17 @@ rather have a much simpler UI that I can understand and change, then introduce c
 
 However, do keep in mind that I'm speaking as a developer hired to build features. For an indie developer or a founder,
 things might be different.
+
+---
+
+Ignoring the hype, I do indeed find the current set of AI tools quite useful in my day to day work. Most often I
+use Claude in the dedicated desktop application and I use it as a sounding board for my ideas. I've started using 
+agents more and more in a pair programming format, with the agent being the driver and myself being the navigator.
+I've also noticed that I often end up doing TDD, with the major advantage that now I have much more time for the refactor
+step in the red-green-refactor cycle.
+
+Old practices are becoming relevant again in the age of AI.
+
+However, I can't say I've been ten times more productive. There are definitely actions that now are cheaper or faster
+and in those specific cases I could say I saw a 10x improvement, but there are plenty of cases when I'm just
+as productive as I was five years ago. There are peaks and valleys.
