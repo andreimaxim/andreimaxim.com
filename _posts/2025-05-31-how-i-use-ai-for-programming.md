@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How I use AI for Programming
+title: How I Use AI for Programming
 ---
 I've been using LLMs since March 2023, when ChatGPT 4 was released and it became clear (at least for me)
 that AI will probably have a significant impact in my job as a programmer. I've used it almost daily
