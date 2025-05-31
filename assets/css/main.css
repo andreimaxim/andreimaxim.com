@@ -34,6 +34,8 @@
     --muted-heading-color: var(--tailwind-slate-500);
     --code-border-color: var(--border-color);
     --code-background-color: var(--tailwind-slate-50);
+    --blockquote-background-color: #ffffff;
+    --blockquote-text-color: var(--tailwind-slate-700);
 
     @media (prefers-color-scheme: dark) {
         --main-background-color: var(--tailwind-slate-800);
@@ -45,6 +47,8 @@
         --muted-heading-color: var(--tailwind-slate-400);
         --code-border-color: var(--border-color);
         --code-background-color: var(--tailwind-slate-700);
+        --blockquote-background-color: var(--tailwind-slate-700);
+        --blockquote-text-color: var(--tailwind-slate-200);
     }
 }
 
@@ -190,6 +194,33 @@ body {
                 margin-top: 1em;
             }
 
+            blockquote {
+                border-left: 4px solid var(--border-color);
+                background-color: var(--blockquote-background-color);
+                margin: 2rem 0;
+                padding: 0 1.5rem;
+                font-style: italic;
+                color: var(--blockquote-text-color);
+            }
+
+            hr {
+                border: none;
+                height: 1em;
+                margin: 3em auto;
+                position: relative;
+                background: none;
+            }
+
+            hr::before {
+                content: "* * *";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                color: var(--tailwind-slate-400);
+                font-size: var(--font-size-large);
+                letter-spacing: 0.5em;
+            }
 
             a.footnote {
                 font-size: var(--font-size-small);
