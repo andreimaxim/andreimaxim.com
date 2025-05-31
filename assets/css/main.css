@@ -143,13 +143,12 @@ body {
         text-align: center;
 
         img {
-            width: 125px;
-            height: 125px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
         }
     }
-
 
     article {
         margin-bottom: 2rem;
