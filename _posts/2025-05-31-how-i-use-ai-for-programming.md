@@ -17,8 +17,8 @@ parameter information, go to definition, and so on.
 
 IntelliSense was a big deal. 
 
-For example, Charles Petzold, the author of the bible if you wanted to develop Windows applications, wrote
-in his article from 2005 called ["Does Visual Studio Rot the Mind"][vs-rot-mind] (foreshadowing):
+For example, Charles Petzold, the author of the bible you had to read if you wanted to develop Windows applications, 
+wrote in his article from 2005 called ["Does Visual Studio Rot the Mind"][vs-rot-mind] (foreshadowing):
 
 > IntelliSense is considered by some to be the most important programming innovation since caffeine. 
 > It works especially well with .NET because Visual Studio can use reflection to obtain all the information
@@ -90,15 +90,15 @@ was quite convoluted so you'd end up relying a lot either on `puts` debugging, o
 
 However, I picked up Ruby and Ruby on Rails much faster than .NET because of the way you'd learn Rails back then was
 to follow the [Agile Web Development with Rails][awdwr] book and manually type the code in your editor, run the code, see
-it work or failing, fixing it, then move on to the next code snippet and so on.
+it work or failing, fix it, then move on to the next code snippet and so on.
 
 [awdwr]: https://pragprog.com/titles/rails8/agile-web-development-with-rails-8/
 
-Many years later, when LSPs became popular and then Github Copilot became available, I remembered Charles Petzold article
-and, even to this day, I disable autocompletion of any kind (I have a keyboard shortcut for on-demand autocompletion, but it's
-normally turned off by default). I like the code navigation tools, because they are much faster than grepping through code, 
-but I've always found that autocompletion is not only very distracting, but it also enables me to make a lesser effort
-when it comes to properly naming methods or classes.
+Many years later, when LSPs became popular and then Github Copilot became available, I remembered Charles Petzold's 
+article and, even to this day, I disable autocompletion of any kind (I have a keyboard shortcut for on-demand
+autocompletion, but it's normally turned off by default). I like the code navigation tools, because they are much faster 
+than grepping through code, but I've always found that autocompletion is not only very distracting, but it also enables
+me to make a lesser effort when it comes to properly naming methods or classes.
 
 AI tools are much more powerful than LSPs and, as such, I'm trying to be as careful as possible when using them because
 the medium or long-term side-effects on our brains from using such tools is unknown and there already is evidence of
