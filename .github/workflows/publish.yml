@@ -17,7 +17,9 @@ jobs:
           bundler-cache: true
 
       - name: Build site
-        run: bundle exec jekyll build --verbose --trace
+        run: |
+          bundle exec jekyll clean
+          bundle exec jekyll build --verbose --trace
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
