@@ -131,22 +131,21 @@ Now with all this out of the way, let me explain how I use AI tools as a profess
 
 ### When working with a brittle legacy codebase
 
-First, there's the case where I need to make a change on a piece of existing code in a legacy codebase.
-This is generally my day to day job and the only approved AI tool is Github Copilot with the OpenAI or Anthropic
-models enabled.
+First, there's the case where I need to make a change in a 11-year old Ruby codebase, which does not have a
+great test to code ratio. This is my day to day job and using tools like Github Copilot or some agent needs
+to be vetted by my employers.
 
-I've tried using Copilot in agent mode, but unfortunately it's a 11-year old codebase with few automated tests, so
-I need to be very careful what I change and where since I don't have the safety net of automated tests. Even for new
-functionality, I'd need to spend a lot of time to explain the non-standard layout of the codebase to agents, which
-will most likely hit the limit of their context window very quickly, so I generally implement most of the things
-by hand.
+Also, I wouldn't be inclined to use agents to modify the code because I need to be very careful what I change.
+Even for new functionality, I'd need to spend a lot of time to explain the non-standard layout of the codebase
+to agents, which will most likely hit the limit of their context window very quickly, so I generally implement
+most of the things by hand.
 
-In this scenario, I might use Copilot Chat to validate some ideas, but this happens rarely.
+In this scenario, I might use Copilot Chat (which is approved by the employer) to validate some of my ideas.
 
 What does work quite nicely is to use the LLM for very discrete tasks. For example, if you're building a JSON
-API, you pass a JSON blob to the LLM and ask it to generate test data based on some specific scenarios. It's
-really fast, quite accurate, and the review cost is very small, so low risk while the benefits of having
-good test data in a brittle codebase are really, really high.
+API, you pass a JSON blob to the LLM (e.g. in the chat window) and ask it to generate test data based on some
+specific scenarios. It's really fast, quite accurate, and the review cost is very small, so low risk while the
+benefits of having good test data in a brittle codebase are really, really high.
 
 I've actually cracked open [Michael Feather's "Working Effectively with Legacy Code"][wewlc] for a refresher
 to figure out ways to improve the codebase, since a lot of the techniques described in the book could
@@ -165,7 +164,7 @@ I've noticed that good programming practices enable you to use more advanced AI 
 ... and so on because they help you feed the AI tool the *right* context and, at least when it comes to code,
 everything matters: class names, method names, comments, namespace names, package names, etc.
 
-I've noticed that the more meaning you can cram into the context window with less tokens, the better and,
+I'd argue that the more meaning you can cram into the context window with less tokens, the better and,
 incidentally, this also applies to humans. This is why we have design patterns, for example, because
 once a human or an AI tool sees the word "singleton" they know exactly what it means without requiring
 any more context. The same applies for well-defined domain models.
