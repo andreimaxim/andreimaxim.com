@@ -15,15 +15,15 @@ I've started as a .NET developer and one of the features that set Visual Studio 
 which worked pretty much the same as a modern LSP server and client implementation: it had code completion,
 parameter information, go to definition, and so on.
 
-IntelliSense was a big deal. 
+IntelliSense was a big deal.
 
-For example, Charles Petzold, the author of the bible you had to read if you wanted to develop Windows applications, 
+For example, Charles Petzold, the author of the bible you had to read if you wanted to develop Windows applications,
 wrote in his article from 2005 called ["Does Visual Studio Rot the Mind"][vs-rot-mind] (foreshadowing):
 
-> IntelliSense is considered by some to be the most important programming innovation since caffeine. 
+> IntelliSense is considered by some to be the most important programming innovation since caffeine.
 > It works especially well with .NET because Visual Studio can use reflection to obtain all the information
 > it needs from the actual DLLs you’ve specified as references.
-> 
+>
 > In fact, IntelliSense has become the first warning sign that you haven’t properly included a DLL reference
 > or a using directive at the top of your code. You start typing and IntelliSense comes up with nothing.
 > You know immediately something is wrong.
@@ -43,26 +43,26 @@ IntelliSense more and more.
 However, Charles Petzold's article continues:
 
 > And yet, IntelliSense is also dictating the way we program.
-> 
+>
 > For example, for many years programmers have debated whether it’s best to code in a top-down manner, where
 > you basically start with the overall structure of the program and then eventually code the more detailed
 > routines at the bottom; or, alternatively, the bottom-up approach, where you start with the low-level functions
 > and then proceed upwards. Some languages, such as classical Pascal, basically impose a bottom-up approach,
 > but other languages do not.
-> 
+>
 > Well, the debate is now over. In order to get IntelliSense to work correctly, bottom-up programming is best.
 > IntelliSense wants every class, every method, every property, every field, every method parameter, every local
 > variable properly defined before you refer to it. If that’s not the case, then IntelliSense will try to correct
 > what you’re typing by using something that has been defined, and which is probably just plain wrong.
-> 
+>
 > For example, suppose you’re typing some code and you decide you need a variable named `id`, and instead of defining
 > it first, you start typing a statement that begins with id and a space. I always type a space between my variable
 > and the equals sign. Because id is not defined anywhere, IntelliSense will find something that begins with those
 > two letters that is syntactically correct in accordance with the references, namespaces, and context of your code.
-> In my particular case, IntelliSense decided that I really wanted to define a variable of interface type 
+> In my particular case, IntelliSense decided that I really wanted to define a variable of interface type
 > `IDataGridColumnStyleEditingNotificationService`, an interface I’ve never had occasion to use.
-> 
-> On the plus side, if you really need to define an object of type `IDataGridColumnStyleEditingNotificationService`, 
+>
+> On the plus side, if you really need to define an object of type `IDataGridColumnStyleEditingNotificationService`,
 > all you need do is type id and a space.
 >
 > If that’s wrong, you can eliminate IntelliSense’s proposed code and go back to what you originally typed with the Undo
@@ -77,7 +77,7 @@ However, Charles Petzold's article continues:
 >
 > It’s not that IntelliSense is teaching us to program like a machine; it’s just that IntelliSense would be much happier
 > if we did.
-> 
+>
 > And I think it’s making us dumber. Instead of finding out exactly the method I need, or instead of trying to remember
 > an elusive property name, I find myself scrolling through the possibilities that IntelliSense provides, looking for a
 > familiar name, or at least something that seems like it might do the job.
@@ -94,9 +94,9 @@ it work or failing, fix it, then move on to the next code snippet and so on.
 
 [awdwr]: https://pragprog.com/titles/rails8/agile-web-development-with-rails-8/
 
-Many years later, when LSPs became popular and then Github Copilot became available, I remembered Charles Petzold's 
+Many years later, when LSPs became popular and then Github Copilot became available, I remembered Charles Petzold's
 article and, even to this day, I disable autocompletion of any kind (I have a keyboard shortcut for on-demand
-autocompletion, but it's normally turned off by default). I like the code navigation tools, because they are much faster 
+autocompletion, but it's normally turned off by default). I like the code navigation tools, because they are much faster
 than grepping through code, but I've always found that autocompletion is not only very distracting, but it also enables
 me to make a lesser effort when it comes to properly naming methods or classes.
 
@@ -105,7 +105,6 @@ the medium or long-term side-effects on our brains from using such tools is unkn
 some effect like the [Copilot Pause][copilot-pause].
 
 [copilot-pause]: https://thomasvogelaar.me/posts/the-copilot-pause/
-
 
 ### Code Ownership
 
@@ -130,7 +129,6 @@ processing.
 
 Now with all this out of the way, let me explain how I use AI tools as a professional programmer.
 
-
 ### When working with a brittle legacy codebase
 
 First, there's the case where I need to make a change on a piece of existing code in a legacy codebase.
@@ -140,7 +138,7 @@ models enabled.
 I've tried using Copilot in agent mode, but unfortunately it's a 11-year old codebase with few automated tests, so
 I need to be very careful what I change and where since I don't have the safety net of automated tests. Even for new
 functionality, I'd need to spend a lot of time to explain the non-standard layout of the codebase to agents, which
-will most likely hit the limit of their context window very quickly, so I generally implement most of the things 
+will most likely hit the limit of their context window very quickly, so I generally implement most of the things
 by hand.
 
 In this scenario, I might use Copilot Chat to validate some ideas, but this happens rarely.
@@ -156,10 +154,10 @@ be implemented faster using AI.
 
 [wewlc]: https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052
 
-
 ### When working with a well-organized codebase
 
 I've noticed that good programming practices enable you to use more advanced AI tools, like agents:
+
 * Automated tests can catch any regressions caused by agents editing your code
 * Well-encapsulated code limits the amount of context agents need to have
 * Single Responsibility Principle limits the surface area the agents need to change
@@ -167,18 +165,19 @@ I've noticed that good programming practices enable you to use more advanced AI 
 ... and so on because they help you feed the AI tool the *right* context and, at least when it comes to code,
 everything matters: class names, method names, comments, namespace names, package names, etc.
 
-I've noticed that the more meaning you can cram into the context window with less tokens, the better and, 
+I've noticed that the more meaning you can cram into the context window with less tokens, the better and,
 incidentally, this also applies to humans. This is why we have design patterns, for example, because
 once a human or an AI tool sees the word "singleton" they know exactly what it means without requiring
 any more context. The same applies for well-defined domain models.
 
 However, the AI will still need a bit of hand-holding, so I do two things:
+
 * I create an `AGENT.md` (I use Amp Code, but there's a `CLAUDE.md` for Claude Code or `AGENTS.md` for OpenAI Codex)
   to set up general project rules
 * I write long threads in the chat, where I try to explain as well as I can what I want to achieve, what I think might
   need to be changed, what might be the potential issues and so on
 
-Here's a sample `AGENT.md` I created for a Redmine project I'm working on:
+Here's a sample `AGENT.md` I created for a Redmine plugin I'm working on:
 
 ```markdown
 # Agent Guidelines for project_name
@@ -247,7 +246,7 @@ what I was thinking of.
 For example, when implementing an import feature for a hypothetical CMS engine, I'd probably start with a message like this:
 
 > The current goal is to process the files in the test/fixtures/files/legacy/ folder. The folder has a "overview.json" file that
-> acts as some sort of index, meaning it has a list of accounts and each account should have an associated JSON file named as 
+> acts as some sort of index, meaning it has a list of accounts and each account should have an associated JSON file named as
 > \<account_id\>.json, which contains all the blog posts of that user.
 >
 > The posts should be ingestible using the Post model, but we need to figure out a good name for a domain model to process the
@@ -288,7 +287,7 @@ things might be different.
 ---
 
 Ignoring the hype, I do indeed find the current set of AI tools quite useful in my day to day work. Most often I
-use Claude in the dedicated desktop application and I use it as a sounding board for my ideas. I've started using 
+use Claude in the dedicated desktop application and I use it as a sounding board for my ideas. I've started using
 agents more and more in a pair programming format, with the agent being the driver and myself being the navigator.
 I've also noticed that I often end up doing TDD, with the major advantage that now I have much more time for the refactor
 step in the red-green-refactor cycle.
