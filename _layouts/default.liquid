@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <title>{% if title %}{{ title }} | {% endif %}Andrei Maxim</title>
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    {%- if page.description -%}
-        <meta name="description" content="{{ page.description }}"/>
+    {%- if description -%}
+        <meta name="description" content="{{ description }}"/>
     {%- else -%}
-        <meta name="description" content="{{ site.description }}"/>
+        <meta name="description" content="Andrei Maxim's digital garden with writings about Ruby, Rails, HTML, CSS and JavaScript."/>
     {%- endif -%}
 
-    <link rel="canonical" href="{{ page.url | absolute_url }}"/>
+    <link rel="canonical" href="{{ baseUrl }}{{ page.url }}"/>
     <link rel="apple-touch-icon" sizes="300x300"  href="/assets/img/andreimaxim.jpg" />
     <link rel="icon" type="image/png" sizes="300x300" href="/assets/img/andreimaxim.jpg" />
 
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}"/>
-    <meta property="og:url" content="{{ page.url | absolute_url }}"/>
+    <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}Andrei Maxim"/>
+    <meta property="og:url" content="{{ baseUrl }}{{ page.url }}"/>
     <meta property="og:image" content="/assets/img/andreimaxim.jpg"/>
     <meta property="og:type" content="article"/>
 
-    {%- if page.description -%}
-        <meta property="og:description" content="{{ page.description }}"/>
+    {%- if description -%}
+        <meta property="og:description" content="{{ description }}"/>
     {%- else -%}
-        <meta name="og:description" content="{{ site.description }}"/>
+        <meta name="og:description" content="Andrei Maxim's digital garden with writings about Ruby, Rails, HTML, CSS and JavaScript."/>
     {%- endif -%}
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@rockatanescu" />
-    <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}" />
+    <meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}Andrei Maxim" />
     <meta name="twitter:image" content="/assets/img/andreimaxim.jpg"/>
 
-    {%- if page.description -%}
-        <meta name="twitter:description" content="{{ page.description }}"/>
+    {%- if description -%}
+        <meta name="twitter:description" content="{{ description }}"/>
     {%- else -%}
-        <meta name="twitter:description" content="{{ site.description }}"/>
+        <meta name="twitter:description" content="Andrei Maxim's digital garden with writings about Ruby, Rails, HTML, CSS and JavaScript."/>
     {%- endif -%}
 
     <meta name="color-scheme" content="light dark"/>
