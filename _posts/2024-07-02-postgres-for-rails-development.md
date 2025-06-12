@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Setting Up Postgres for Rails Development In WSL2
+title: Postgres for Rails Development
 ---
 If you are setting up a Rails application for development, and you need to run Postgres locally,
 you have two options:
