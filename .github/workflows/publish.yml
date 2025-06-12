@@ -6,7 +6,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    name: Publish to Cloudflare Pages
+    name: Deploy to Cloudflare Workers
 
     steps:
       - uses: actions/checkout@v4
@@ -19,12 +19,12 @@ jobs:
       - name: Build site
         run: bundle exec jekyll build --verbose --trace
 
-      - name: Publish to Cloudflare Pages
+      - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy _site --project-name=andreimaxim-com
+          command: deploy --env production
 
       - name: Purge Cloudflare Cache
         run: |
