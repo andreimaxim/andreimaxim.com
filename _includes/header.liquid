@@ -1,0 +1,10 @@
+<header class="site-header">
+    <a href="/" class="site-logo">
+        <img src="/assets/img/andreimaxim.jpg" alt="" width="40" height="40"/>
+        <span>Andrei Maxim</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
+        <a href="/uses/"{% if page.url == "/uses/" %} aria-current="page"{% endif %}>Uses</a>
+    </nav>
+</header>

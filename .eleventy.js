@@ -48,7 +48,26 @@ export default function (eleventyConfig) {
     if (format === '%B %e, %Y') {
       return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
     }
+    if (format === '%Y') {
+      return `${d.getFullYear()}`;
+    }
+    if (format === '%Y-%m-%d') {
+      return d.toISOString().split('T')[0];
+    }
     return d.toISOString().split('T')[0];
+  });
+
+  // Group by expression filter (similar to Jekyll's group_by_exp)
+  eleventyConfig.addFilter('group_by_exp', function (collection, variable, expression) {
+    const groups = {};
+    collection.forEach(item => {
+      const year = new Date(item.date).getFullYear().toString();
+      if (!groups[year]) {
+        groups[year] = { name: year, items: [] };
+      }
+      groups[year].items.push(item);
+    });
+    return Object.values(groups).sort((a, b) => b.name - a.name);
   });
 
   // Add base URL for canonical and social meta tags

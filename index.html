@@ -1,28 +1,22 @@
 ---
-layout: page
+layout: default
 title: "Home"
 ---
 
-<header>
-    <h1>
-        <a href="/" aria-label="All posts from Andrei Maxim">
-            <img src="/assets/img/andreimaxim.jpg" alt="Andrei Maxim" size="50x50"/>
-        </a>
-    </h1>
-    <h2 class="bio">Andrei Maxim</h2>
-</header>
-
-<section>
-    {% for post in collections.posts %}
-    <article>
-        <h3>{{ post.date | date: "%B %e, %Y" }}</h3>
-        <h2>{{ post.data.title }}</h2>
-
-        <p>{{ post.content | strip_html | truncatewords: 50 }} </p>
-
-        <div class="more">
-            <a href="{{ post.url }}">Read More</a>
-        </div>
-    </article>
-    {% endfor %}
+<section class="posts-list">
+    <h1 class="visually-hidden">All posts</h1>
+    {%- assign postsByYear = collections.posts | group_by_exp: "post", "post.date | date: '%Y'" -%}
+    {%- for year in postsByYear -%}
+    <section class="year-group">
+        <h2>{{ year.name }}</h2>
+        <ul>
+            {%- for post in year.items -%}
+            <li>
+                <a href="{{ post.url }}">{{ post.data.title }}</a>
+                <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %e, %Y" }}</time>
+            </li>
+            {%- endfor -%}
+        </ul>
+    </section>
+    {%- endfor -%}
 </section>

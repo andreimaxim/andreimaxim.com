@@ -1,20 +1,18 @@
 ---
 layout: default
 ---
-<div class="post">
-    <div class="logo">
-        <a href="/">
-            <img src="/assets/img/andreimaxim.jpg" alt="Andrei Maxim"/>
-        </a>
-    </div>
-    <article>
-        <h2>{{ date | date: "%B %e, %Y" }}</h2>
+<article class="post">
+    <header class="post-header">
+        <time datetime="{{ date | date: '%Y-%m-%d' }}">{{ date | date: "%B %e, %Y" }}</time>
         <h1>{{ title }}</h1>
+    </header>
 
-        <div class="content">
-            {{ content }}
-        </div>
-    </article>
-</div>
+    <div class="content">
+        {{ content }}
+    </div>
 
-
+    <footer class="post-footer">
+        {% include "author-bio.liquid" %}
+        <a href="/" class="back-link">← All posts</a>
+    </footer>
+</article>
