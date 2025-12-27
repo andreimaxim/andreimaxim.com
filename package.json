@@ -1,6 +1,7 @@
 {
   "name": "andreimaxim.com",
   "version": "1.0.0",
+  "type": "module",
   "description": "TBD",
   "main": "index.js",
   "scripts": {
