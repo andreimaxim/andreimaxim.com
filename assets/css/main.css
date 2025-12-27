@@ -1,5 +1,5 @@
 :root {
-    --content-width: 85ch;
+    --content-width: 142ch;
 
     --font-family: -apple-system, BlinkMacSystemFont, Aptos, Roboto, "Segoe UI", Helvetica, Arial, sans-serif;
     --font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -183,11 +183,6 @@ a {
             align-items: baseline;
             gap: var(--spacing-md);
             padding: var(--spacing-sm) 0;
-            border-bottom: 1px solid transparent;
-
-            &:hover {
-                border-bottom-color: var(--border-color);
-            }
         }
 
         a {
