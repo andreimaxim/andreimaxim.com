@@ -2,66 +2,126 @@
 layout: post
 title: Postgres for Rails Development
 ---
-If you are setting up a Rails application for development, and you need to run Postgres locally,
-you have two options:
 
-1. Install Postgres using the operating system package manager (e.g. `apt get`)
-2. Start a PostgreSQL container
+I've found that the best way to set up Posgres for local development is via Docker, since it has some
+clear benefits over using system packages on Windows (via WSL2) or Linux.
 
-### Using the Ubuntu package manager
+There are three steps to configure Postgres for your Rails application:
 
-Installing locally is fairly trivial and involves just two commands:
+1. Install the Postgres server
+2. Install Postgres libraries for development
+3. Configure your application to connect to the Postgres container
 
-```shell-session
-sudo apt install postgresql
-sudo systemctl enable postgresql
+## Installing the Postgres container
+
+After some testing, I've settled on the following command:
+
+```bash
+sudo docker run -d --restart unless-stopped \
+  --name=postgres18 \
+  -e POSTGRES_HOST_AUTH_METHOD=trust \
+  -e POSTGRES_USER=$(whoami)\
+  -p "127.0.0.1:5432:5432" \
+  --shm-size=1g \
+  postgres:18 -c max_locks_per_transaction=1024
 ```
 
-Once PostgreSQL is installed and running, you only need to create a Postgres role that matches
-your OS username and a default database since Postgres will raise a
-`FATAL:  database "<your_account_name>" does not exist` error unless you specify a database:
+Here's a short explanation of each flag:
 
-```shell-session
-sudo -u postgres psql
+- `sudo docker run -d` runs the Docker container in the background (-d means daemon)
+- `--restart unless-stopped` will automatically start the Postgres service when the Docker daemon starts,
+  unless manually stopped (which is very useful if you have a Postgre 17 instance, but you want to switch
+  to Postgres 16 without changing the application configuration)
+- `-e POSTGRES_HOST_AUTH_METHOD=trust` basically password authentication, which is fine for local development
+  as long as the container is only exposed to the localhost (see below)
+- `-e POSTGRES_USER=$(whoami)` sets the default user to your local OS system account (in my case it's `andrei`)
+- `-p "127.0.0.1:5432:5432"` binds the internal port 5432 on the Docker container, which is used by Postgres,
+  to the same port on localhost. Since the service binds to `127.0.0.1` this means that the port will not be
+  accessible from the outside world (e.g. if you are using a shared wifi in a cafe)
+- `--shm-size=1g` increases the default Docker container shared memory from 64MB to 1GB, otherwise Postgres
+  might raise a "could not resize shared memory" error
+- `-c "max_locks_per_transaction=128"` increases the number of locks per transaction, which can be reached
+  by Rails when running tests (see [this Gitlab issue](https://gitlab.com/gitlab-org/gitlab/-/issues/412760#note_1426797584)).
+  This needs to be last since it's passed as a command to `postgres`
+
+## Install Postgres libraries for development
+
+In order to connect to Postgres, we also need the development libraries so we can install the `pg` gem.
+This is different on every system and Linux distribution, but on Ubuntu there is an official Apt repository
+which offers access to the latest Postgres releases:
+
+```bash
+sudo apt install -y postgresql-common
+sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 ```
 
-and write the following SQL commands:
+Then install the latest client application (`createdb`, `dropdb`, `pg_dump`, `psql`, etc) and development
+libraries:
 
-```sql
-CREATE ROLE <your_account_name> WITH SUPERUSER LOGIN PASSWORD 'password';
-CREATE DATABASE <your_account_name> OWNER <your_account_name>;
+```bash
+sudo apt install postgresql-client-17 libpq-dev
 ```
 
-_Note: This approach also works in WSL2 since [September 2022, when Microsoft added support for Systemd][wsl-systemd]._
-
-[wsl-systemd]: https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/
-
-### Using Docker
-
-The other option is to start a container:
-
-```shell-session
-$ sudo docker run -d --restart unless-stopped -p "127.0.0.1:5432:5432" \
-    --shm-size=1g --name=postgres17 -e POSTGRES_HOST_AUTH_METHOD=trust postgres:17
-    -c "max_locks_per_transaction=128"
-```
-
-Using the `POSTGRES_HOST_AUTH_METHOD=trust` bypasses the authentication mechanism.
-
-### Environment Variables
-
-If you have a vanilla `config/database.yml` file (e.g. after running `rails new your_app`), ActiveRecord will try
-to connect to the localhost using a socket instead of the exposed port, causing a `ActiveRecord::ConnectionNotEstablished`
-error because the Docker container only exposes a port.
-
-However, if you set up the `PGHOST` environment variable to point to an IP address (in this case, `127.0.0.1`)
-then Postgres will use the `5432` port automatically, without having to edit the `config/database.yml` file:
+You should be able to log into the database server now:
 
 ```shell
-export PGHOST=127.0.0.1
-export PGUSER=postgres
-export PGPASSWORD=password
+$ psql -h 127.0.0.1
+psql (18.1 (Ubuntu 18.1-1.pgdg24.04+2))
+Type "help" for help.
+
+andrei=#
 ```
 
-As an alternative, you can create a `pgpass` file where you can store the password
-instead of using the `PGPASSWORD` environment variable.
+### Configure your application
+
+We can simplify the `config/database.yml` file quite a lot when using Postgres. here's an example for
+a blog application:
+
+```yaml
+default: &default
+adapter: postgresql
+encoding: unicode
+# For details on connection pooling, see Rails configuration guide
+# https://guides.rubyonrails.org/configuring.html#database-pooling
+pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 3 } %>
+
+development:
+  <<: *default
+  database: blog_development
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+   <<: *default
+  database: blog_test
+
+# ActiveRecord will automatically use the `DATABASE_URL` environment
+# variable for the primary database and `<NAME>_DATABASE_URL` for any
+# secondary database (e.g. `REPLICA_DATABASE_URL`).
+#
+# If both database.yml and the environment variable contain the same values
+# (e.g. host or database name), the environment variable wins.
+production:
+  <<: *default
+  database: blog_production
+```
+
+Note that the host, username or password are all missing, which means that ActiveRecord will
+connect by default to a socket on `localhost` and authenticate using the current system user.
+
+In order to override that, we need to provide the following environment variables in your
+local `.env` file or as part of `.bashrc`:
+
+```bash
+export PGHOST=127.0.0.1
+```
+
+In case you might be using a database schema different than `public` for your Rails application,
+you can set that up using an environment variable as well:
+
+```bash
+export PGOPTIONS='-c search_path=myapp,public'
+```
+
+Now you should have Postgres ready for your Ruby on Rails application!
