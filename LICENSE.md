@@ -2,7 +2,8 @@
 
 ## Articles
 
-All files inside the `posts` folder  are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+All files inside the `src/content/posts` folder are licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ## Photos
 
