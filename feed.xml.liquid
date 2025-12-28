@@ -1,0 +1,31 @@
+---
+layout: null
+permalink: /feed.xml
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Andrei Maxim</title>
+        <link>{{ baseUrl }}/</link>
+        <atom:link href="{{ baseUrl }}{{ page.url }}" rel="self" type="application/rss+xml" />
+        <description>Andrei Maxim's digital garden with writings about Ruby, Rails, HTML, CSS and JavaScript.</description>
+        <lastBuildDate>{{ "now" | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+
+        {%- for post in collections.posts -%}
+        <item>
+            <title>{{ post.data.title | escape }}</title>
+            <link>{{ baseUrl }}{{ post.url }}</link>
+            <description>
+                {%- if post.data.description -%}
+                    {{ post.data.description | escape }}
+                {%- else -%}
+                    {{ post.templateContent | strip_html | strip | truncate: 400 | escape }}
+                {%- endif -%}
+            </description>
+            <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+            <guid>{{ baseUrl }}{{ post.url }}</guid>
+        </item>
+        {%- endfor -%}
+    </channel>
+</rss>

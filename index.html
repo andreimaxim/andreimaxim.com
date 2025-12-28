@@ -5,8 +5,7 @@ title: "Home"
 
 <section class="posts-list">
     <h1 class="visually-hidden">All posts</h1>
-    {%- assign postsByYear = collections.posts | group_by_exp: "post", "post.date | date: '%Y'" -%}
-    {%- for year in postsByYear -%}
+    {%- for year in collections.postsByYear -%}
     <section class="year-group">
         <h2>{{ year.name }}</h2>
         <ul>

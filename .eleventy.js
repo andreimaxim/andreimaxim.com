@@ -6,68 +6,24 @@ export default function (eleventyConfig) {
   // Copy assets to output
   eleventyConfig.addPassthroughCopy('assets');
 
-  // Copy specific files
-  eleventyConfig.addPassthroughCopy('feed.xml');
-  eleventyConfig.addPassthroughCopy('sitemap.xml');
-
   // Set up collections
   eleventyConfig.addCollection('posts', function (collectionApi) {
     return collectionApi.getFilteredByGlob('posts/*.md').reverse();
   });
 
-  // Parse dates from filenames for Jekyll-style posts
-  eleventyConfig.addGlobalData('eleventyComputed', {
-    date: function (data) {
-      if (data.page.inputPath.includes('posts/')) {
-        const filename = data.page.inputPath.split('/').pop();
-        const dateMatch = filename.match(/^(\d{4}-\d{2}-\d{2})-/);
-        if (dateMatch) {
-          return new Date(dateMatch[1]);
-        }
+  eleventyConfig.addCollection('postsByYear', function (collectionApi) {
+    const groups = new Map();
+    const posts = collectionApi.getFilteredByGlob('posts/*.md').reverse();
+
+    posts.forEach(post => {
+      const year = new Date(post.date).getFullYear().toString();
+      if (!groups.has(year)) {
+        groups.set(year, { name: year, items: [] });
       }
-      return data.date;
-    }
-  });
-
-  // Transform permalinks for posts
-  eleventyConfig.addFilter('postPermalink', function (inputPath) {
-    if (inputPath.includes('posts/')) {
-      const filename = inputPath.split('/').pop();
-      const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-      return `/posts/${slug}/`;
-    }
-    return inputPath;
-  });
-
-  // Date filter
-  eleventyConfig.addFilter('date', function (date, format) {
-    const d = new Date(date);
-    const months = ['January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'];
-
-    if (format === '%B %e, %Y') {
-      return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
-    }
-    if (format === '%Y') {
-      return `${d.getFullYear()}`;
-    }
-    if (format === '%Y-%m-%d') {
-      return d.toISOString().split('T')[0];
-    }
-    return d.toISOString().split('T')[0];
-  });
-
-  // Group by expression filter (similar to Jekyll's group_by_exp)
-  eleventyConfig.addFilter('group_by_exp', function (collection, variable, expression) {
-    const groups = {};
-    collection.forEach(item => {
-      const year = new Date(item.date).getFullYear().toString();
-      if (!groups[year]) {
-        groups[year] = { name: year, items: [] };
-      }
-      groups[year].items.push(item);
+      groups.get(year).items.push(post);
     });
-    return Object.values(groups).sort((a, b) => b.name - a.name);
+
+    return Array.from(groups.values()).sort((a, b) => Number(b.name) - Number(a.name));
   });
 
   // Add base URL for canonical and social meta tags
