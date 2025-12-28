@@ -5,18 +5,7 @@
 - Install deps: `npm install`
 - Dev server: `npm start` (localhost:8080 with hot reload)
 - Build site: `npm run build` (outputs to `_site/`)
-- Deploy: `npx wrangler deploy --env production` (Cloudflare Workers)
 - No linting/testing commands configured; validate with build success
-
-## Code Style & Conventions
-
-- **JavaScript**: 2 spaces, single quotes, prefer ESM (`import`/`export`)
-- **Files**: kebab-case naming (e.g., `my-component.js`)
-- **Liquid templates**: use `{%- -%}` for whitespace control
-- **Markdown posts**: `YYYY-MM-DD-slug.md` format with `title`, `description` frontmatter
-- **HTML**: semantic tags, proper heading hierarchy, always include alt text
-- **CSS**: optimize for performance, use existing `src/assets/css/main.css` patterns
-- **Error handling**: graceful fallbacks in templates, validate dates/permalinks
 
 ## Project Structure
 

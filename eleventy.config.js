@@ -1,14 +1,8 @@
 import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
 import { feedPlugin } from '@11ty/eleventy-plugin-rss';
 
-import getBaseUrl from './src/_data/baseUrl.js';
-import site from './src/_data/site.js';
-
 export default function (eleventyConfig) {
-  eleventyConfig.addPlugin(syntaxHighlight);
-
-  const baseUrl = getBaseUrl();
-  const siteUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+  eleventyConfig.addPlugin(syntaxHighlight)
 
   eleventyConfig.addPlugin(feedPlugin, {
     type: 'atom',
@@ -23,23 +17,23 @@ export default function (eleventyConfig) {
     },
     metadata: {
       language: 'en',
-      title: site.title,
+      title: "Andrei Maxim",
       subtitle: 'Andrei Maxim\'s digital garden with writings about Ruby, Rails, HTML, CSS and JavaScript.',
-      base: siteUrl,
+      base: "https://andreimaxim.com",
       author: {
         name: 'Andrei Maxim'
       }
     }
-  });
+  })
 
   eleventyConfig.addPassthroughCopy({
     'src/assets': 'assets',
     'src/feeds/pretty-atom-feed.xsl': 'feeds/pretty-atom-feed.xsl'
-  });
+  })
 
   eleventyConfig.addCollection('posts', function (collectionApi) {
     return collectionApi.getFilteredByTag('posts');
-  });
+  })
 
   eleventyConfig.addCollection('postsByYear', function (collectionApi) {
     const groups = new Map();
@@ -51,10 +45,10 @@ export default function (eleventyConfig) {
         groups.set(year, { name: year, items: [] });
       }
       groups.get(year).items.push(post);
-    });
+    })
 
     return Array.from(groups.values()).sort((a, b) => Number(b.name) - Number(a.name));
-  });
+  })
 
   return {
     dir: {

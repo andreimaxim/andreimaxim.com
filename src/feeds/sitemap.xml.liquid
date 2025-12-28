@@ -10,7 +10,7 @@ search: exclude
     {%- for item in collections.all -%}
         {%- if item.url and item.url != '/404.html' and item.data.search != 'exclude' -%}
     <url>
-        <loc>{{ baseUrl }}{{ item.url }}</loc>
+        <loc>{{ site.baseUrl }}{{ item.url }}</loc>
         <lastmod>{{ item.date | date: '%Y-%m-%d' }}</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
