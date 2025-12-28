@@ -154,7 +154,7 @@ Benchmark.ips do |x|
 
   x.report("Kramdown.to_html") do
     Kramdown::Document.new(md, auto_ids: false, syntax_highlighter: nil, math_engine: nil)
-.to_html
+      .to_html
   end
 
   x.report("Redcarpet.render") do
