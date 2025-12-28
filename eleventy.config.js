@@ -1,12 +1,44 @@
 import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
+import { feedPlugin } from '@11ty/eleventy-plugin-rss';
+
+import getBaseUrl from './src/_data/baseUrl.js';
+import site from './src/_data/site.js';
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets' });
+  const baseUrl = getBaseUrl();
+  const siteUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: 'atom',
+    outputPath: '/feed.xml',
+    stylesheet: 'feeds/pretty-atom-feed.xsl',
+    templateData: {
+      search: 'exclude'
+    },
+    collection: {
+      name: 'posts',
+      limit: 20
+    },
+    metadata: {
+      language: 'en',
+      title: site.title,
+      subtitle: 'Andrei Maxim\'s digital garden with writings about Ruby, Rails, HTML, CSS and JavaScript.',
+      base: siteUrl,
+      author: {
+        name: 'Andrei Maxim'
+      }
+    }
+  });
+
+  eleventyConfig.addPassthroughCopy({
+    'src/assets': 'assets',
+    'src/feeds/pretty-atom-feed.xsl': 'feeds/pretty-atom-feed.xsl'
+  });
 
   eleventyConfig.addCollection('posts', function (collectionApi) {
-    return collectionApi.getFilteredByTag('posts').reverse();
+    return collectionApi.getFilteredByTag('posts');
   });
 
   eleventyConfig.addCollection('postsByYear', function (collectionApi) {
@@ -34,6 +66,6 @@ export default function (eleventyConfig) {
     },
     markdownTemplateEngine: 'liquid',
     htmlTemplateEngine: 'liquid',
-    templateFormats: ['html', 'liquid', 'md']
+    templateFormats: ['html', 'liquid', 'md', 'njk']
   };
 }
