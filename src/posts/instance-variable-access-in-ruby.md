@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Instance Variable Access in Ruby
+date: 2024-04-17
 ---
+
 Instance variables (or instance attributes) in Ruby are prefixed with an `@` sign:
 
 ```ruby
@@ -83,7 +85,7 @@ end
 
 john = Person.new first_name: "John", last_name: "Doe"
 john.name # => "John Doe"
-john.first_name # => NoMethodError: private method `first_name' called for 
+john.first_name # => NoMethodError: private method `first_name' called for
                 #    an instance of Person
 ```
 
@@ -93,7 +95,7 @@ when using inheritance because you can override methods, but you can't override 
 
 For example, the salutation of the members of a royal house need to start with "HRH"
 from "His Royal Highness" or "Her Royal Highness" and has to include the title
-(the [naming conventions for royalty and nobility are actually quite complex](https://en.wikipedia.org/wiki/Wikipedia:Naming_conventions_(royalty_and_nobility))).
+(the [naming conventions for royalty and nobility are actually quite complex](<https://en.wikipedia.org/wiki/Wikipedia:Naming_conventions_(royalty_and_nobility)>)).
 If we used direct variable access, we would need to reimplement the `name` method:
 
 ```ruby
@@ -115,7 +117,7 @@ class Royalty < Person
     @first_name = first_name
     @last_name = last_name
   end
-  
+
   def salutation
     "HRH #{@title}"
   end
@@ -161,7 +163,7 @@ class Royalty < Person
     @last_name = last_name
     @suffix = suffix
   end
-  
+
   def salutation
     "HRH #{title}"
   end

@@ -1,7 +1,9 @@
 ---
 layout: post
 title: RESTful Webhooks in Rails
+date: 2024-05-02
 ---
+
 I've recently seen a code sample about working with Stripe webhooks in Rails
 applications and I've noticed the following code in the controller:
 

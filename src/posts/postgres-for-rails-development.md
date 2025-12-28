@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Postgres for Rails Development
+date: 2024-07-02
 ---
 
 I've found that the best way to set up Posgres for local development is via Docker, since it has some
