@@ -3,17 +3,15 @@ import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  // Copy assets to output
-  eleventyConfig.addPassthroughCopy('assets');
+  eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets' });
 
-  // Set up collections
   eleventyConfig.addCollection('posts', function (collectionApi) {
-    return collectionApi.getFilteredByGlob('posts/*.md').reverse();
+    return collectionApi.getFilteredByTag('posts').reverse();
   });
 
   eleventyConfig.addCollection('postsByYear', function (collectionApi) {
     const groups = new Map();
-    const posts = collectionApi.getFilteredByGlob('posts/*.md').reverse();
+    const posts = collectionApi.getFilteredByTag('posts').reverse();
 
     posts.forEach(post => {
       const year = new Date(post.date).getFullYear().toString();
@@ -26,16 +24,12 @@ export default function (eleventyConfig) {
     return Array.from(groups.values()).sort((a, b) => Number(b.name) - Number(a.name));
   });
 
-  // Add base URL for canonical and social meta tags
-  eleventyConfig.addGlobalData('baseUrl', function () {
-    return process.env.NODE_ENV === 'production' ? 'https://andreimaxim.com' : 'http://localhost:8080';
-  });
-
   return {
     dir: {
-      input: '.',
+      input: 'src',
       includes: '_includes',
-      layouts: '_layouts',
+      layouts: '_includes/layouts',
+      data: '_data',
       output: '_site'
     },
     markdownTemplateEngine: 'liquid',

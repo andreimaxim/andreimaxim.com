@@ -10,18 +10,20 @@
 
 ## Code Style & Conventions
 
-- **JavaScript**: 2 spaces, single quotes, CommonJS modules (no ES6 imports)
+- **JavaScript**: 2 spaces, single quotes, prefer ESM (`import`/`export`)
 - **Files**: kebab-case naming (e.g., `my-component.js`)
 - **Liquid templates**: use `{%- -%}` for whitespace control
 - **Markdown posts**: `YYYY-MM-DD-slug.md` format with `title`, `description` frontmatter
 - **HTML**: semantic tags, proper heading hierarchy, always include alt text
-- **CSS**: optimize for performance, use existing `assets/css/main.css` patterns
+- **CSS**: optimize for performance, use existing `src/assets/css/main.css` patterns
 - **Error handling**: graceful fallbacks in templates, validate dates/permalinks
 
 ## Project Structure
 
-- `posts/`: Blog posts (Markdown with Liquid)
-- `_layouts/`, `_includes/`: Liquid templates
-- `assets/`: Static files (CSS, JS, images)
-- `.eleventy.js`: Site configuration
+- `src/`: Eleventy input (pages, posts, feeds, assets, data)
+- `src/posts/`: Blog posts (Markdown with Liquid)
+- `src/_includes/`: Liquid templates (`layouts/` and `partials/`)
+- `src/_data/`: Global data
+- `src/assets/`: Static files (CSS, JS, images)
+- `eleventy.config.js`: Site configuration
 - `_site/`: Build output (never commit)
