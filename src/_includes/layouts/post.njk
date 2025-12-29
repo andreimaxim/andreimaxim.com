@@ -1,14 +1,14 @@
 ---
-layout: default
+layout: default.njk
 ---
 <article class="post">
     <header class="post-header">
-        <time datetime="{{ date | date: '%Y-%m-%d' }}">{{ date | date: "%B %e, %Y" }}</time>
+        <time datetime="{{ date | dateIso }}">{{ date | dateReadable }}</time>
         <h1>{{ title }}</h1>
     </header>
 
     <div class="content">
-        {{ content }}
+        {{ content | safe }}
     </div>
 
     <footer class="post-footer">

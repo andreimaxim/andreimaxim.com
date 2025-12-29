@@ -2,7 +2,7 @@
   "name": "andreimaxim.com",
   "version": "1.0.0",
   "type": "module",
-  "description": "TBD",
+  "description": "Andrei Maxim's personal blog",
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
@@ -14,12 +14,12 @@
     "url": "git+https://github.com/andreimaxim/andreimaxim.com.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Andrei Maxim",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/andreimaxim/andreimaxim.com/issues"
   },
-  "homepage": "https://github.com/andreimaxim/andreimaxim.com#readme",
+  "homepage": "https://andreimaxim.com",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.1",
     "wrangler": "4.54.0"

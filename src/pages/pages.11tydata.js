@@ -1,4 +1,4 @@
 export default {
-    layout: "layouts/page",
+    layout: "page.njk",
     tags: ["pages"]
 };

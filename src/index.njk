@@ -1,6 +1,6 @@
 ---
-layout: default
-title: "Home"
+layout: default.njk
+title: Home
 ---
 
 <section class="posts-list">
@@ -12,7 +12,7 @@ title: "Home"
             {%- for post in year.items -%}
             <li>
                 <a href="{{ post.url }}">{{ post.data.title }}</a>
-                <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %e, %Y" }}</time>
+                <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
             </li>
             {%- endfor -%}
         </ul>

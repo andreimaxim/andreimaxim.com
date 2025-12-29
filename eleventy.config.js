@@ -2,7 +2,7 @@ import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
 import { feedPlugin } from '@11ty/eleventy-plugin-rss';
 
 export default function (eleventyConfig) {
-  eleventyConfig.addPlugin(syntaxHighlight)
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.addPlugin(feedPlugin, {
     type: 'atom',
@@ -24,31 +24,33 @@ export default function (eleventyConfig) {
         name: 'Andrei Maxim'
       }
     }
-  })
+  });
 
   eleventyConfig.addPassthroughCopy({
     'src/assets': 'assets',
     'src/feeds/pretty-atom-feed.xsl': 'feeds/pretty-atom-feed.xsl'
-  })
-
-  eleventyConfig.addCollection('posts', function (collectionApi) {
-    return collectionApi.getFilteredByTag('posts');
-  })
+  });
 
   eleventyConfig.addCollection('postsByYear', function (collectionApi) {
     const groups = new Map();
-    const posts = collectionApi.getFilteredByTag('posts').reverse();
-
-    posts.forEach(post => {
+    collectionApi.getFilteredByGlob('src/posts/*.md').reverse().forEach(post => {
       const year = new Date(post.date).getFullYear().toString();
-      if (!groups.has(year)) {
-        groups.set(year, { name: year, items: [] });
-      }
-      groups.get(year).items.push(post);
-    })
+      groups.set(year, [...(groups.get(year) || []), post]);
+    });
+    return Array.from(groups.entries())
+      .sort(([a], [b]) => Number(b[0]) - Number(a[0]))
+      .map(([name, items]) => ({ name, items }));
+  });
 
-    return Array.from(groups.values()).sort((a, b) => Number(b.name) - Number(a.name));
-  })
+  eleventyConfig.addFilter('dateIso', date => date.toISOString().split('T')[0]);
+
+  eleventyConfig.addFilter('dateReadable', date => date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }));
+
+  eleventyConfig.addWatchTarget('src/assets/css/');
 
   return {
     dir: {
@@ -58,8 +60,8 @@ export default function (eleventyConfig) {
       data: '_data',
       output: '_site'
     },
-    markdownTemplateEngine: 'liquid',
-    htmlTemplateEngine: 'liquid',
-    templateFormats: ['html', 'liquid', 'md', 'njk']
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
+    templateFormats: ['md', 'njk', 'html']
   };
 }
