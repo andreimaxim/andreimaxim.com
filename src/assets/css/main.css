@@ -286,7 +286,7 @@ img {
 
     a {
         font-size: var(--font-size-large);
-        font-weight: 500;
+        /* font-weight: 500; */
         color: var(--text-primary);
         text-decoration: none;
     }
@@ -402,97 +402,94 @@ img {
         letter-spacing: -0.02em;
     }
 
-    .content {
+    > .content {
         font-size: var(--font-size-large);
         line-height: 1.75;
         max-width: var(--content-width);
         color: var(--text-primary);
-    }
+        
+        p {
+            margin: 0 0 var(--spacing-md);
+        }
 
-    .content p {
-        margin: 0 0 var(--spacing-md);
-    }
+        h2, h3, h4 {
+            margin-top: var(--spacing-2xl);
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
 
-    .content h2,
-    .content h3,
-    .content h4 {
-        margin-top: var(--spacing-2xl);
-        margin-bottom: var(--spacing-sm);
-        color: var(--text-primary);
-    }
+        h2 {
+            font-size: var(--font-size-x-large);
+        }
 
-    .content h2 {
-        font-size: var(--font-size-x-large);
-    }
+        h3 {
+            font-size: var(--font-size-large);
+        }
+        
+        ul, ol {
+            margin: 0 0 var(--spacing-md);
+            padding-left: var(--spacing-lg);
+        }
 
-    .content h3 {
-        font-size: var(--font-size-large);
-    }
-
-    .content ul,
-    .content ol {
-        margin: 0 0 var(--spacing-md);
-        padding-left: var(--spacing-lg);
-    }
-
-    .content li {
-        margin-bottom: var(--spacing-sm);
-    }
-
-    .content img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: var(--spacing-md) 0;
-        border-radius: var(--radius-sm);
-    }
-
-    .content figure {
-        margin: var(--spacing-md) 0;
-        padding: 0;
+        li {
+            margin-bottom: var(--spacing-sm);
+        }
 
         img {
-            margin: 0;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: var(--spacing-md) 0;
+            border-radius: var(--radius-sm);
         }
 
-        figcaption {
+        figure {
+            margin: var(--spacing-md) 0;
+            padding: 0;
+
+            img {
+                margin: 0;
+            }
+
+            figcaption {
+                font-size: var(--font-size-small);
+                text-align: center;
+                font-style: italic;
+                color: var(--text-muted);
+                margin-top: var(--spacing-sm);
+            }
+        }
+        
+        blockquote {
+            border-left: 3px solid var(--blockquote-border);
+            background-color: var(--blockquote-background-color);
+            margin: var(--spacing-md) 0;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--blockquote-text-color);
+            border-radius: var(--radius-sm);
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: var(--spacing-2xl) 0;
+        }
+
+        a.footnote {
             font-size: var(--font-size-small);
-            text-align: center;
-            font-style: italic;
-            color: var(--text-muted);
-            margin-top: var(--spacing-sm);
+            text-decoration: none;
         }
-    }
 
-    .content blockquote {
-        border-left: 3px solid var(--blockquote-border);
-        background-color: var(--blockquote-background-color);
-        margin: var(--spacing-md) 0;
-        padding: var(--spacing-sm) var(--spacing-md);
-        color: var(--blockquote-text-color);
-        border-radius: var(--radius-sm);
-
-        p:last-child {
-            margin-bottom: 0;
+        .footnotes {
+            font-size: var(--font-size-small);
+            margin-top: var(--spacing-2xl);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
         }
-    }
-
-    .content hr {
-        border: none;
-        border-top: 1px solid var(--border-color);
-        margin: var(--spacing-2xl) 0;
-    }
-
-    .content a.footnote {
-        font-size: var(--font-size-small);
-        text-decoration: none;
-    }
-
-    .content .footnotes {
-        font-size: var(--font-size-small);
-        margin-top: var(--spacing-2xl);
-        padding-top: var(--spacing-md);
-        border-top: 1px solid var(--border-color);
     }
 
     .post-footer {

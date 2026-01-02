@@ -19,7 +19,6 @@ export default function (eleventyConfig) {
       .map(([name, items]) => ({ name, items }));
   });
 
-
   eleventyConfig.addFilter('dateIso', date => date.toISOString().split('T')[0]);
 
   eleventyConfig.addFilter('dateReadable', date => date.toLocaleDateString('en-US', {
@@ -27,8 +26,6 @@ export default function (eleventyConfig) {
     month: 'long',
     day: 'numeric'
   }));
-
-
 
   eleventyConfig.addWatchTarget('src/assets/css/');
 
