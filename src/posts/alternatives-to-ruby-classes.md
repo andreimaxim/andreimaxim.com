@@ -7,7 +7,7 @@ date: 2026-01-02
 I've noticed that many Ruby developers tend to suffer from "classitis,"
 as coined by John Ousterhout in his "A Philosophy of Software Design,"
 where there is an explosion of shallow modules (or, in our case, classes)
-instead of having few deep modules.
+instead of having fewer deep modules.
 
 I understand the general criticism that `ActionController` instances
 aren't really objects, but sure this can't be the best alternative:
@@ -26,7 +26,7 @@ end
 ```
 
 It gets even worse when you consider the proliferation of the `ServiceObject`
-pattern in the Ruby and Rails codebases, which often look like this:
+pattern in the Ruby and Rails codebases, which often looks like this:
 
 ```ruby
 class BookCreator
@@ -80,8 +80,7 @@ So I was pleasantly surprised when I saw Dave Thomas's talk at SFRuby titled
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sjuCiIdMe_4?si=VB4h1hOxi_pAIGbp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Below I'll attempt to reframe some of his arguments in order to make
-them slightly more actionable.
+Below are my notes about some the arguments he is making.
 
 ## When to use `module` instead of `class`
 
@@ -106,7 +105,8 @@ class Utils
 end
 ```
 
-Use a module with `extend self`:
+Since it doesn't make sense to instantiate the above class at all,
+let's replace it with a module:
 
 ```ruby
 module Utils
@@ -155,7 +155,9 @@ class AdminStrategy < StrategyBase
 end
 ```
 
-You should prefer:
+The `StrategyBase` class actually represents a _behavior_ which
+we want to _mix into_ our `UserStrategy` and `AdminStrategy` objects,
+so why not be explicit about that and convert it to a `Module`?
 
 ```ruby
 module Runnable
@@ -185,15 +187,22 @@ class AdminStrategy
 end
 ```
 
-The advantage of this approach is that is scales much better when you want to add
-more types of objects and some behaviors are not shared between all subclasses.
+The main advantage is that adding behaviors to classes via mixins scales
+much better than using inheritance:
 
-For example, imagine a `VisitorStrategy` that might inherit from `StrategyBase`,
-while only the `UserStrategy` and `AdminStrategy` share the same logging
-behaviors. The only solution in this case would be `LoggedInStrategy` which is
-a subclass of the `StrategyBase` and then the `AdminStrategy` and `UserStrategy`
-would inherit from `LoggedInStrategy` (yes, it already sounds complicated) and
-suddenly we have an inheritance hierarchy that goes three levels deep.
+```ruby
+class AdminStrategy
+  include Runnable, Retriable, Loggable
+end
+
+class UserStrategy
+ include Runnable, Retriable, Loggable
+end
+
+class GuestStrategy
+  include Runnable, Expirable
+end
+```
 
 These different approaches can be seen in `ActiveJob` and `Sidekiq`:
 
@@ -214,8 +223,9 @@ end
 ```
 
 The inheritance hierarchy is not a big issue in the case of `ActiveJob` mainly
-because the convention is that all files in `app/jobs` are a type of job, but
-this might not be as clear in other parts of the code (e.g. `app/models`).
+because the convention is that all files in `app/jobs` are expected to always be
+a type of job, but this might not be as clear in other parts of the codebase
+(e.g. `app/models`).
 
 ## When to use a `Data` instead of `class`
 
