@@ -1,9 +1,12 @@
 :root {
-    --content-width: 70ch;
-    --content-width-wide: 112ch;
+    --content-width: 80ch;
+    --content-width-wide: calc(var(--content-width) * 1.6);
+    --container-padding: clamp(2rem, 4vw, 4.8rem);
 
-    --font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
-    --font-family-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --font-family: "Aptos", "Segoe UI", "Segoe UI Variable", "Helvetica Neue", "SF Pro Text", "SF Pro Display", "Helvetica",
+        "Arial", "Noto Sans", "Liberation Sans", "Ubuntu", "Cantarell", system-ui, sans-serif;
+    --font-family-mono: "Cascadia Mono", "Cascadia Code", "SF Mono", "Monaco", "Menlo", "Consolas", "Ubuntu Mono",
+        "Liberation Mono", "DejaVu Sans Mono", ui-monospace, monospace;
     --font-size-base: 10px;
     --font-size-x-small: 1.2rem;
     --font-size-small: 1.4rem;
@@ -138,7 +141,7 @@ img {
     background: var(--main-background-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
-    padding: clamp(2rem, 4vw, 4.8rem);
+    padding: var(--container-padding);
     box-shadow: var(--shadow-md);
 }
 
