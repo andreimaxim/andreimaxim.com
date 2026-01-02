@@ -1,4 +1,4 @@
 export default {
-    layout: "page.njk",
+    layout: "page.liquid",
     tags: ["pages"]
 };

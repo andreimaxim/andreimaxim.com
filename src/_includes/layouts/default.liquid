@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{%- if title %}{{ title }} | {% endif %}Andrei Maxim</title>
+    <title>{% if title %}{{ title }} | {% endif %}Andrei Maxim</title>
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" sizes="300x300"  href="/assets/img/andreimaxim.jpg" />
     <link rel="icon" type="image/png" sizes="300x300" href="/assets/img/andreimaxim.jpg" />
 
-    <meta property="og:title" content="{%- if title %}{{ title }} | {% endif %}Andrei Maxim"/>
+    <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}Andrei Maxim"/>
     <meta property="og:url" content="{{ site.baseUrl }}{{ page.url }}"/>
     <meta property="og:image" content="/assets/img/andreimaxim.jpg"/>
     <meta property="og:type" content="article"/>
@@ -22,7 +22,7 @@
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@rockatanescu" />
-    <meta name="twitter:title" content="{%- if title %}{{ title }} | {% endif %}Andrei Maxim" />
+    <meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}Andrei Maxim" />
     <meta name="twitter:image" content="/assets/img/andreimaxim.jpg"/>
 
     <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}"/>
@@ -42,8 +42,8 @@
 </head>
 <body>
     <main class="container">
-        {% include "partials/header.njk" %}
-        {{ content | safe }}
+        {% include "partials/header.liquid" %}
+        {{ content }}
     </main>
 </body>
 </html>

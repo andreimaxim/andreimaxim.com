@@ -1,30 +1,7 @@
 import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
-import { feedPlugin } from '@11ty/eleventy-plugin-rss';
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
-
-  eleventyConfig.addPlugin(feedPlugin, {
-    type: 'atom',
-    outputPath: '/feed.xml',
-    stylesheet: 'feeds/pretty-atom-feed.xsl',
-    templateData: {
-      search: 'exclude'
-    },
-    collection: {
-      name: 'posts',
-      limit: 20
-    },
-    metadata: {
-      language: 'en',
-      title: "Andrei Maxim",
-      subtitle: 'Andrei Maxim\'s digital garden with writings about Ruby, Rails, HTML, CSS and JavaScript.',
-      base: "https://andreimaxim.com",
-      author: {
-        name: 'Andrei Maxim'
-      }
-    }
-  });
 
   eleventyConfig.addPassthroughCopy({
     'src/assets': 'assets',
@@ -42,12 +19,6 @@ export default function (eleventyConfig) {
       .map(([name, items]) => ({ name, items }));
   });
 
-  eleventyConfig.addCollection('latestPosts', function (collectionApi) {
-    return collectionApi.getFilteredByTag('posts')
-      .slice()
-      .sort((a, b) => b.date - a.date)
-      .slice(0, 10);
-  });
 
   eleventyConfig.addFilter('dateIso', date => date.toISOString().split('T')[0]);
 
@@ -56,6 +27,8 @@ export default function (eleventyConfig) {
     month: 'long',
     day: 'numeric'
   }));
+
+
 
   eleventyConfig.addWatchTarget('src/assets/css/');
 
@@ -67,8 +40,8 @@ export default function (eleventyConfig) {
       data: '_data',
       output: '_site'
     },
-    markdownTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk',
-    templateFormats: ['md', 'njk', 'html']
+    markdownTemplateEngine: 'liquid',
+    htmlTemplateEngine: 'liquid',
+    templateFormats: ['md', 'liquid', 'html']
   };
 }

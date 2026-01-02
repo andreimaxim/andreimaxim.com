@@ -1,0 +1,29 @@
+---
+layout: null
+permalink: /feed.xml
+search: exclude
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="feeds/pretty-atom-feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>{{ site.title | escape }}</title>
+  <subtitle>{{ site.description | escape }}</subtitle>
+  <link href="{{ site.baseUrl }}/feed.xml" rel="self" />
+  <link href="{{ site.baseUrl }}/" />
+  {% assign latest = collections.posts | last %}
+  <updated>{{ latest.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+  <id>{{ site.baseUrl }}/</id>
+  <author>
+    <name>{{ site.title | escape }}</name>
+  </author>
+  {% for post in collections.posts reversed limit:20 %}
+  <entry>
+    <title>{{ post.data.title | escape }}</title>
+    <link href="{{ site.baseUrl }}{{ post.url }}" />
+    <updated>{{ post.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+    <id>{{ site.baseUrl }}{{ post.url }}</id>
+    <content type="html">{{ post.templateContent | escape }}</content>
+  </entry>
+  {% endfor %}
+</feed>

@@ -1,5 +1,5 @@
 ---
-layout: default.njk
+layout: default.liquid
 title: Home
 ---
 <section class="home-hero">
@@ -8,9 +8,6 @@ title: Home
         I'm a Ruby developer based in Romania. I've been building web applications for over a decade,
         mostly with Ruby on Rails. I care about clean code, performance, and building software that's a joy to use.
     </p>
-    <p class="lede subdued">
-        This site is my digital garden where I write about Ruby, Rails, HTML, CSS, and JavaScript.
-    </p>
 </section>
 <section class="home-latest">
     <div class="section-heading">
@@ -18,11 +15,11 @@ title: Home
         <a class="section-link" href="/archive/">View archive</a>
     </div>
     <ol class="post-list">
-        {%- for post in collections.latestPosts -%}
+        {% for post in collections.posts reversed limit:10 %}
         <li>
             <a href="{{ post.url }}">{{ post.data.title }}</a>
             <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
         </li>
-        {%- endfor -%}
+        {% endfor %}
     </ol>
 </section>
