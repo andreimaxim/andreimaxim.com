@@ -10,14 +10,19 @@ where there is an explosion of shallow modules (or, in our case, classes)
 instead of having fewer deep modules.
 
 I understand the general criticism that `ActionController` instances
-aren't really objects, but sure this can't be the best alternative:
+aren't really objects, but sure this can't be the best [alternative][hanami]:
+
+[hanami]: https://guides.hanamirb.org/v2.3/actions/overview/
 
 ```ruby
 module Bookshelf
   module Actions
     module Home
-      class Index < Bookshelf::Action
+      class Show < Bookshelf::Action
         def handle(request, response)
+          name = request.params[:name]
+
+          response.body = "Welcome to Bookshelf #{name}!"
         end
       end
     end
@@ -25,8 +30,10 @@ module Bookshelf
 end
 ```
 
-It gets even worse when you consider the proliferation of the `ServiceObject`
+It gets even worse when you consider the proliferation of the [ServiceObject][so]
 pattern in the Ruby and Rails codebases, which often looks like this:
+
+[so]: https://www.honeybadger.io/blog/refactor-ruby-rails-service-object/
 
 ```ruby
 class BookCreator
