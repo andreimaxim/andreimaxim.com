@@ -108,6 +108,7 @@ body {
         radial-gradient(1200px circle at 0% -20%, var(--accent-soft), transparent 55%),
         radial-gradient(900px circle at 120% 10%, var(--accent-soft), transparent 55%),
         var(--page-bg);
+    background-attachment: fixed;
     color: var(--main-text-color);
     padding: clamp(1.6rem, 3vw, 3.2rem);
 }
@@ -389,7 +390,7 @@ img {
         font-size: var(--font-size-x-small);
         color: var(--text-muted);
         display: block;
-        margin-bottom: var(--spacing-sm);
+        margin-top: var(--spacing-sm);
         text-transform: uppercase;
         letter-spacing: 0.2em;
     }
