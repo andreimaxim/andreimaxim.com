@@ -2,20 +2,27 @@
 layout: default.njk
 title: Home
 ---
-
-<section class="posts-list">
-    <h1 class="visually-hidden">All posts</h1>
-    {%- for year in collections.postsByYear -%}
-    <section class="year-group">
-        <h2>{{ year.name }}</h2>
-        <ul>
-            {%- for post in year.items -%}
-            <li>
-                <a href="{{ post.url }}">{{ post.data.title }}</a>
-                <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
-            </li>
-            {%- endfor -%}
-        </ul>
-    </section>
-    {%- endfor -%}
+<section class="home-hero">
+    <h1>Hello, I'm Andrei Maxim.</h1>
+    <p class="lede">
+        I'm a Ruby developer based in Romania. I've been building web applications for over a decade,
+        mostly with Ruby on Rails. I care about clean code, performance, and building software that's a joy to use.
+    </p>
+    <p class="lede subdued">
+        This site is my digital garden where I write about Ruby, Rails, HTML, CSS, and JavaScript.
+    </p>
+</section>
+<section class="home-latest">
+    <div class="section-heading">
+        <h2>Latest writing</h2>
+        <a class="section-link" href="/archive/">View archive</a>
+    </div>
+    <ol class="post-list">
+        {%- for post in collections.latestPosts -%}
+        <li>
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+            <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+        </li>
+        {%- endfor -%}
+    </ol>
 </section>

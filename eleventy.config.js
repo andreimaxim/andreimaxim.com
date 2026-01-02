@@ -42,6 +42,13 @@ export default function (eleventyConfig) {
       .map(([name, items]) => ({ name, items }));
   });
 
+  eleventyConfig.addCollection('latestPosts', function (collectionApi) {
+    return collectionApi.getFilteredByTag('posts')
+      .slice()
+      .sort((a, b) => b.date - a.date)
+      .slice(0, 10);
+  });
+
   eleventyConfig.addFilter('dateIso', date => date.toISOString().split('T')[0]);
 
   eleventyConfig.addFilter('dateReadable', date => date.toLocaleDateString('en-US', {
