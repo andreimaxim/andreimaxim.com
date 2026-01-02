@@ -2,6 +2,7 @@
 layout: post
 title: Alternatives to Ruby classes
 date: 2026-01-02
+description: A discussion about classitis in Ruby programs and why fewer classes can lead to clearer designs.
 ---
 
 I've noticed that many Ruby developers tend to suffer from "classitis,"

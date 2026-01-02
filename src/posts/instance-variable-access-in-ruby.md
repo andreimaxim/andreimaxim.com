@@ -2,6 +2,7 @@
 layout: post
 title: Instance Variable Access in Ruby
 date: 2024-04-17
+description: A short look at direct vs indirect instance variable access and the potential advantages and tradeoffs of each approach
 ---
 
 Instance variables (or instance attributes) in Ruby are prefixed with an `@` sign:

@@ -2,6 +2,7 @@
 layout: post
 title: Benchmarking with Ruby on Rails
 date: 2025-10-15
+description: A quick walkthrough of using Rails benchmarks to compare Markdown parsers like Redcarpet, Commonmarker, and Kramdown.
 ---
 
 One of the things I really enjoy about Ruby on Rails is that it has a lot of tiny conveniences

@@ -2,6 +2,7 @@
 layout: post
 title: RESTful Webhooks in Rails
 date: 2024-05-02
+description: Why webhook endpoints should map to resources, and a simple RESTful controller naming tweak that keeps Rails apps tidy.
 ---
 
 I've recently seen a code sample about working with Stripe webhooks in Rails
