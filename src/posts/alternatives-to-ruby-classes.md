@@ -4,18 +4,84 @@ title: Alternatives to Ruby classes
 date: 2026-01-02
 ---
 
-Even though I think I've reached the age when I wince a bit when I hear
-"stop using classes" in an object-oriented language, I'd highly recommend
-to every Ruby developer to watch Dave Thomas's talk from SFRuby:
+I've noticed that many Ruby developers tend to suffer from "classitis,"
+as coined by John Ousterhout in his "A Philosophy of Software Design,"
+where there is an explosion of shallow modules (or, in our case, classes)
+instead of having few deep modules.
+
+I understand the general criticism that `ActionController` instances
+aren't really objects, but sure this can't be the best alternative:
+
+```ruby
+module Bookshelf
+  module Actions
+    module Home
+      class Index < Bookshelf::Action
+        def handle(request, response)
+        end
+      end
+    end
+  end
+end
+```
+
+It gets even worse when you consider the proliferation of the `ServiceObject`
+pattern in the Ruby and Rails codebases, which often look like this:
+
+```ruby
+class BookCreator
+  def self.call(*args)
+    new(*args).call
+  end
+
+  def initialize(title:, description:, author_id:, genre_id:)
+    @title = title
+    @description = description
+    @author_id = author_id
+    @genre_id = genre_id
+  end
+
+  def call
+    create_book
+  end
+
+  private
+    def create_book
+      Book.create!(
+        title: @title
+        description: @description
+        author_id: @author_id
+        genre_id: @genre_id
+      )
+    rescue ActiveRecord::RecordNotUnique => e
+      # handle duplicate entry
+    end
+end
+```
+
+This whole class (which is basically a Factory) could have been a method:
+
+```ruby
+class Book
+  class << self
+    def create_unique(params)
+      Book.create!(params)
+    rescue ActiveRecord::RecordNotUnique => e
+      # handle duplicate entry
+    end
+  end
+
+  # rest of the code
+end
+```
+
+So I was pleasantly surprised when I saw Dave Thomas's talk at SFRuby titled
+"Stop Using Classes, which I'd highly recommend watching:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sjuCiIdMe_4?si=VB4h1hOxi_pAIGbp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-The core argument is that the a lot of developers default to using `Class`
-when other constructs are more appropriate.
-
-While I agree with most of the points that Dave Thomas is making, I'll
-attempt to reframe some of his arguments in order to make them slightly
-more actionable.
+Below I'll attempt to reframe some of his arguments in order to make
+them slightly more actionable.
 
 ## When to use `module` instead of `class`
 
@@ -197,7 +263,7 @@ Person = Data.define(:first_name, :last_name, :age) do
 end
 ```
 
-## Classes and design patterns
+## Naming classes after design patterns
 
 Dave Thomas says that if your class is named after a design pattern,
 then it's a smell. While I agree that in Ruby we don't need to have
@@ -209,17 +275,30 @@ For example, I don't think it's a smell that you have a `RemindersJob`,
 or a `UsersController` class even though both contain the name of the
 pattern ("job" and "controller").
 
+## Abstract classes
+
+I wrote my fair share of abstract classes and the logic behind it was
+that they provided core functionality for the classes that inherited
+from it (e.g. populating the model with data pulled from a specific URL).
+
+However, looking back, I think I always got to a place where I'd had
+methods that would just raise some sort of `NotImplementedError`, or
+I would have to override the `initialize` method and I'm fairly sure
+that using a mix-in would have been much cleaner.
+
 ## Final thoughts
 
-The main reason why Dave Thomas is asking Ruby developers to stop
-using classes (or at least use them less), is complexity.
+I think PragDave was a bit too dramatic when he titled his talk
+"Stop using classes," but otherwise I highly agree with the points
+that he's making.
 
-Object-oriented programming helps us resolve the inherent difficulty
-of modeling complex domains by allowing us model individual entities
-and the interactions between them, but this doesn't come for free.
+Whenever you reach for a class, you are also inviting a lot of complexity,
+which could be avoided by using other tools, like `Module` (which
+is stateless) or `Data` (which is immutable), that could be easier
+to reason about since they are generally simpler. Also, refactoring
+from a `Module` or `Data` to a `Class` is generally extremely
+trivial.
 
-Reaching for a class every time can also invite a lot of complexity,
-which could be avoided by using simpler tools, like `Module` (which
-is stateless) or `Data` (which is immutable). Since their APIs
-are very similar to that of a `Class`, any later refactors (if needed!)
-should be rather trivial.
+That being said, I also think there's a lot of _essential complexity_
+that you need to manage and, often, objects and classes can be
+extremely helpful.
