@@ -93,9 +93,7 @@ Or, if we frame it in a different way, you should use a `module` instead
 of a `class` when **you need a namespace for related functions**
 or when **you need to share code between different object types**.
 
-The first case is rather straightforward.
-
-Instead of the following class:
+Let's consider this class:
 
 ```ruby
 class Utils
