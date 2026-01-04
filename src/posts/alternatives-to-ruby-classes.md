@@ -83,10 +83,10 @@ class Book
 end
 ```
 
-So I was pleasantly surprised when I saw Dave Thomas's talk at SFRuby titled
-"Stop Using Classes, which I'd highly recommend watching:
+So I was pleasantly surprised when I saw [Dave Thomas's talk at SFRuby][anti-classes]
+on the topic of using _less_ classes.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sjuCiIdMe_4?si=VB4h1hOxi_pAIGbp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[anti-classes]: https://www.youtube.com/watch?v=sjuCiIdMe_4
 
 Below are my notes about some the arguments he is making.
 
