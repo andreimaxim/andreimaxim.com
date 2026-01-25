@@ -1,0 +1,21 @@
+---
+layout: default.liquid
+---
+{%- assign book = books | where: "slug", page.fileSlug | first -%}
+<article class="book">
+    <header class="book-header">
+        <div class="book-cover">
+            <img src="/bookshelf/{{ book.slug }}/cover.jpg" alt="{{ book.title }} cover" loading="lazy" />
+        </div>
+        <div class="book-info">
+            <h1>{{ book.title }}</h1>
+            <p class="book-author">{{ book.author }}</p>
+            <p class="book-year">{{ book.year }}</p>
+            <p class="book-isbn">ISBN {{ book.isbn }}</p>
+        </div>
+    </header>
+
+    <div class="content">
+        {{ content }}
+    </div>
+</article>

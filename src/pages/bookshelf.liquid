@@ -1,0 +1,14 @@
+---
+layout: page.liquid
+title: Bookshelf
+permalink: /bookshelf/
+---
+<p class="books-intro">A reading journal for becoming a better software developer and a better human being.</p>
+
+<div class="bookshelf">
+    {%- for book in readBooks -%}
+    <a href="/bookshelf/{{ book.slug }}/" class="bookshelf-item">
+        <img class="book-cover" src="/bookshelf/{{ book.slug }}/cover.jpg" alt="{{ book.title }} cover" loading="lazy" />
+    </a>
+    {%- endfor -%}
+</div>

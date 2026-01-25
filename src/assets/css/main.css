@@ -547,6 +547,203 @@ pre[class*="language-"] {
     font-family: var(--font-family-mono);
 }
 
+/* Books page styles */
+.books-intro {
+    font-size: var(--font-size-large);
+    color: var(--text-secondary);
+    margin: 0 0 var(--spacing-lg);
+    max-width: var(--content-width);
+}
+
+.reading-method {
+    border-left: 3px solid var(--accent);
+    background-color: var(--surface-2);
+    margin: 0 0 var(--spacing-2xl);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-medium);
+
+    summary {
+        cursor: pointer;
+        list-style: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &::before {
+            content: "▸ ";
+            color: var(--text-muted);
+        }
+    }
+
+    &[open] summary::before {
+        content: "▾ ";
+    }
+
+    p {
+        margin: 0 0 var(--spacing-sm);
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    ul {
+        margin: var(--spacing-sm) 0 0;
+        padding-left: var(--spacing-lg);
+    }
+
+    li {
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+.bookshelf {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.bookshelf-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    .book-cover {
+        width: 100%;
+        aspect-ratio: 2 / 3;
+        object-fit: cover;
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+    }
+}
+
+/* Individual book page styles */
+.book {
+    .book-header {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: var(--spacing-xl);
+        margin-bottom: var(--spacing-xl);
+        padding-bottom: var(--spacing-lg);
+        border-bottom: 1px solid var(--border-color);
+
+        @media (max-width: 640px) {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+    }
+
+    .book-cover {
+        width: 100%;
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow-md);
+
+        @media (max-width: 640px) {
+            max-width: 150px;
+            margin: 0 auto;
+        }
+    }
+
+    .book-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+
+        h1 {
+            margin: 0;
+            font-size: var(--font-size-title);
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+    }
+
+    .book-author {
+        margin: 0;
+        font-size: var(--font-size-large);
+        color: var(--text-secondary);
+    }
+
+    .book-year,
+    .book-isbn {
+        margin: 0;
+        font-size: var(--font-size-small);
+        color: var(--text-secondary);
+    }
+
+    .book-meta {
+        margin-bottom: var(--spacing-lg);
+
+        dl {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md) var(--spacing-xl);
+            margin: 0 0 var(--spacing-sm);
+        }
+
+        dt {
+            font-size: var(--font-size-x-small);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+        }
+
+        dd {
+            margin: 0;
+            font-size: var(--font-size-medium);
+            font-weight: 500;
+        }
+
+        .book-notes {
+            margin: var(--spacing-md) 0 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+    }
+
+    > .content {
+        font-size: var(--font-size-large);
+        line-height: 1.75;
+        max-width: var(--content-width);
+        color: var(--text-primary);
+
+        h2 {
+            margin-top: var(--spacing-2xl);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-x-large);
+            color: var(--text-primary);
+        }
+
+        p {
+            margin: 0 0 var(--spacing-md);
+        }
+
+        em {
+            color: var(--text-muted);
+        }
+
+        ul, ol {
+            margin: 0 0 var(--spacing-md);
+            padding-left: var(--spacing-lg);
+        }
+
+        li {
+            margin-bottom: var(--spacing-sm);
+        }
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     pre[class*="language-"] {
         background-color: #121619;

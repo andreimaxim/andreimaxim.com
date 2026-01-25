@@ -7,6 +7,7 @@ export default function (eleventyConfig) {
     'src/assets': 'assets',
     'src/feeds/pretty-atom-feed.xsl': 'feeds/pretty-atom-feed.xsl'
   });
+  eleventyConfig.addPassthroughCopy('src/bookshelf/**/*.jpg');
 
   eleventyConfig.addCollection('postsByYear', function (collectionApi) {
     const groups = new Map();
