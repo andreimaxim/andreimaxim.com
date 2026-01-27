@@ -31,7 +31,7 @@
     --radius-md: 0.8rem;
     --radius-lg: 1.6rem;
 
-    --page-bg: #f4f4f4;
+    --page-bg: oklch(96.5% 0 0);
     --surface-1: #ffffff;
     --surface-2: #f2f4f8;
     --surface-3: #e0e0e0;
@@ -61,7 +61,7 @@
     --blockquote-text-color: var(--text-secondary);
 
     @media (prefers-color-scheme: dark) {
-        --page-bg: #0f0f10;
+        --page-bg: oklch(12% 0 0);
         --surface-1: #161616;
         --surface-2: #1f1f1f;
         --surface-3: #262626;
@@ -88,7 +88,7 @@
 }
 
 html {
-    background: var(--page-bg);
+    background-color: var(--page-bg);
     color: var(--main-text-color);
     font-family: var(--font-family);
     font-size: var(--font-size-base);
@@ -101,7 +101,6 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-    background: var(--page-bg);
     color: var(--main-text-color);
     padding: clamp(1.6rem, 3vw, 3.2rem);
 }
