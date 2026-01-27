@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Adding SimpleCov to a Rails app
+title: Adding SimpleCov to Rails
 date: 2026-01-27
-description: 
+description: How to properly configure SimpleCov for Rails apps using parallel test runners to get accurate coverage reports.
 ---
 
 I've stopped using code coverage tools a number of years ago as the effort
