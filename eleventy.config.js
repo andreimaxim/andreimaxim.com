@@ -11,7 +11,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addCollection('postsByYear', function (collectionApi) {
     const groups = new Map();
-    collectionApi.getFilteredByGlob('src/posts/*.md').reverse().forEach(post => {
+    collectionApi.getFilteredByGlob('src/posts/**/*.md').reverse().forEach(post => {
       const year = new Date(post.date).getFullYear().toString();
       groups.set(year, [...(groups.get(year) || []), post]);
     });
