@@ -331,43 +331,106 @@ img {
         margin-top: var(--spacing-2xl);
     }
 
-    .archive-year h2 {
-        margin: 0 0 var(--spacing-sm);
-        font-size: var(--font-size-small);
-        text-transform: uppercase;
-        letter-spacing: 0.3em;
-        color: var(--text-muted);
-    }
 }
 
-.page {
-    h1 {
-        font-size: var(--font-size-hero);
-        margin: 0 0 var(--spacing-lg);
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-    }
+.content {
+    font-size: var(--font-size-large);
+    line-height: 1.75;
+    color: var(--text-primary);
 
-    .content {
-        font-size: var(--font-size-large);
-        line-height: 1.7;
-        color: var(--text-primary);
-    }
-
-    .content p {
+    p {
+        margin: 0 0 var(--spacing-md);
         max-width: var(--content-width);
     }
 
-    .content ul:not(.post-list),
-    .content ol:not(.post-list) {
+    h2, h3, h4 {
+        margin-top: var(--spacing-2xl);
+        margin-bottom: var(--spacing-sm);
+        color: var(--text-primary);
+    }
+
+    h2 {
+        font-size: var(--font-size-x-large);
+    }
+
+    h3 {
+        font-size: var(--font-size-large);
+    }
+
+    ul:not(.post-list),
+    ol:not(.post-list) {
         max-width: var(--content-width);
         margin: 0 0 var(--spacing-md);
         padding-left: var(--spacing-lg);
     }
 
-    .content li {
+    li {
         margin-bottom: var(--spacing-sm);
     }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: var(--spacing-md) 0;
+        border-radius: var(--radius-sm);
+    }
+
+    figure {
+        margin: var(--spacing-md) 0;
+        padding: 0;
+
+        img {
+            margin: 0;
+        }
+
+        figcaption {
+            font-size: var(--font-size-small);
+            text-align: center;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: var(--spacing-sm);
+        }
+    }
+
+    blockquote {
+        border-left: 3px solid var(--blockquote-border);
+        background-color: var(--blockquote-background-color);
+        margin: var(--spacing-md) 0;
+        padding: var(--spacing-sm) var(--spacing-md);
+        color: var(--blockquote-text-color);
+        border-radius: var(--radius-sm);
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid var(--border-color);
+        margin: var(--spacing-2xl) 0;
+    }
+
+    a.footnote {
+        font-size: var(--font-size-small);
+        text-decoration: none;
+    }
+
+    .footnotes {
+        font-size: var(--font-size-small);
+        margin-top: var(--spacing-2xl);
+        padding-top: var(--spacing-md);
+        border-top: 1px solid var(--border-color);
+    }
+}
+
+.page h1,
+.post-header h1 {
+    font-size: var(--font-size-hero);
+    margin: 0 0 var(--spacing-lg);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 .post {
@@ -375,112 +438,23 @@ img {
         margin-bottom: var(--spacing-2xl);
         padding-bottom: var(--spacing-md);
         border-bottom: 1px solid var(--border-color);
-    }
 
-    .post-header time {
-        font-size: var(--font-size-x-small);
-        color: var(--text-muted);
-        display: block;
-        margin-top: var(--spacing-sm);
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-    }
+        h1 {
+            margin-bottom: 0;
+        }
 
-    .post-header h1 {
-        font-size: var(--font-size-hero);
-        margin: 0;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
+        time {
+            font-size: var(--font-size-x-small);
+            color: var(--text-muted);
+            display: block;
+            margin-top: var(--spacing-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
     }
 
     > .content {
-        font-size: var(--font-size-large);
-        line-height: 1.75;
         max-width: var(--content-width);
-        color: var(--text-primary);
-        
-        p {
-            margin: 0 0 var(--spacing-md);
-        }
-
-        h2, h3, h4 {
-            margin-top: var(--spacing-2xl);
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-primary);
-        }
-
-        h2 {
-            font-size: var(--font-size-x-large);
-        }
-
-        h3 {
-            font-size: var(--font-size-large);
-        }
-        
-        ul, ol {
-            margin: 0 0 var(--spacing-md);
-            padding-left: var(--spacing-lg);
-        }
-
-        li {
-            margin-bottom: var(--spacing-sm);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: var(--spacing-md) 0;
-            border-radius: var(--radius-sm);
-        }
-
-        figure {
-            margin: var(--spacing-md) 0;
-            padding: 0;
-
-            img {
-                margin: 0;
-            }
-
-            figcaption {
-                font-size: var(--font-size-small);
-                text-align: center;
-                font-style: italic;
-                color: var(--text-muted);
-                margin-top: var(--spacing-sm);
-            }
-        }
-        
-        blockquote {
-            border-left: 3px solid var(--blockquote-border);
-            background-color: var(--blockquote-background-color);
-            margin: var(--spacing-md) 0;
-            padding: var(--spacing-sm) var(--spacing-md);
-            color: var(--blockquote-text-color);
-            border-radius: var(--radius-sm);
-
-            p:last-child {
-                margin-bottom: 0;
-            }
-        }
-
-        hr {
-            border: none;
-            border-top: 1px solid var(--border-color);
-            margin: var(--spacing-2xl) 0;
-        }
-
-        a.footnote {
-            font-size: var(--font-size-small);
-            text-decoration: none;
-        }
-
-        .footnotes {
-            font-size: var(--font-size-small);
-            margin-top: var(--spacing-2xl);
-            padding-top: var(--spacing-md);
-            border-top: 1px solid var(--border-color);
-        }
     }
 
     .post-footer {
@@ -494,10 +468,10 @@ img {
         font-size: var(--font-size-medium);
         color: var(--text-secondary);
         text-decoration: none;
-    }
 
-    .back-link:hover {
-        color: var(--text-primary);
+        &:hover {
+            color: var(--text-primary);
+        }
     }
 }
 
