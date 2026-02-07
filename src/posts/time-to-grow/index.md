@@ -13,9 +13,9 @@ item that caused the issue.
 
 A couple of years later, we bought a family PC. Instead of spending a day or more on the reconciliation, she'd spend an hour or
 two inputting data into an Excel spreadsheet and the computer would automatically sum everything. I remember offering to input
-the data she'd dictate from a piece of paper as I was typing much faster and we'd be done in half an hour. If there was an issue
-with a line item, we'd find it in minutes. Of course, there were some times where the idiosyncrasies built into Excel would
-drive us nuts, but those were rare and happened less and less often once we had more experience with the program.
+the data she'd dictate as I was typing much faster and we'd be done in half an hour. If there was an issue with a line item,
+we'd find it in minutes. Of course, there were some times where the idiosyncrasies built into Excel would drive us nuts, but
+those were rare and happened less and less often once we had more experience with the program.
 
 I distinctly remember how magical it felt the first time I saw the autosum feature from Excel at work and noticed that the numbers
 match and it's surprisingly close to what I feel today when I generate code via LLMs!
