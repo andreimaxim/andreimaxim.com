@@ -20,9 +20,9 @@ drive us nuts, but those were rare and happened less and less often once we had 
 I distinctly remember how magical it felt the first time I saw the autosum feature from Excel and it's surprisingly close to
 what I feel today when I generate code via LLMs!
 
-In the last couple of months, I've spent many hours in front of a computer trying to figure out what will happen with the IT industry
-in the years to come, worrying that I'll lose my job and then won't be able to provide for my family and I think I understood two
-things:
+In the last couple of months, I've spent probably too many hours trying to figure out what will happen with me, as a programmer,
+and the IT industry as a whole, in the years to come, worrying that I'll lose my job and then won't be able to provide for my
+family and I think I understood two things:
 
 1. We are going through a global recession and it's likely to hit as just as hard as the subprime mortgage crisis. There will be a
    market contraction, just like there is one during every crisis, and that shall cause many people to lose their jobs.
