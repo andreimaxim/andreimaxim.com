@@ -30,5 +30,6 @@ family and I think I understood two things:
    and many others already did. It might completely replace some aspects of our job, but we should consider this an opportunity to grow
    in other areas.
 
-I don't remember my grandmother ever complaining that she had to learn Excel or that she'd rather go to the old way of doing balances
-and reconciliations.
+Since there are trillion-dollar companies doing their best to replace humans with a subcription to an LLM-powered plan, there is a
+good chance I might be mistaking. On the other hand, I don't remember my grandmother ever complaining that she had to learn Excel
+or that she'd rather go to the old way of doing balances and reconciliations.
