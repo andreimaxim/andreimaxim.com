@@ -17,8 +17,8 @@ the data she'd dictate as I was typing much faster and we'd be done in half an h
 we'd find it in minutes instead of hours. Of course, there were some times where the idiosyncrasies built into Excel would
 drive us nuts, but those were rare and happened less and less often once we had more experience with the program.
 
-I distinctly remember how magical it felt the first time I saw the autosum feature from Excel at work and noticed that the numbers
-match and it's surprisingly close to what I feel today when I generate code via LLMs!
+I distinctly remember how magical it felt the first time I saw the autosum feature from Excel and it's surprisingly close to
+what I feel today when I generate code via LLMs!
 
 In the last couple of months, I've spent many hours in front of a computer trying to figure out what will happen with the IT industry
 in the years to come, worrying that I'll lose my job and then won't be able to provide for my family and I think I understood two
