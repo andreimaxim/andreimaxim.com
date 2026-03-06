@@ -26,9 +26,8 @@ family and I think I understood two things:
 
 1. We are going through a global recession and it's likely to hit as just as hard as the subprime mortgage crisis. There will be a
    market contraction, just like there is one during every crisis, and that shall cause many people to lose their jobs.
-2. LLMs will represent yet another technological leap that will make us be more efficient, just like the email, Excel, AutoCAD, Google
-   and many others already did. It might completely replace some aspects of our job, but we should consider this an opportunity to grow
-   in other areas.
+2. There are always more feature requests than time allows, which is the main reason why we have so many methodologies. LLMs represent
+   yet another technological leap that will make us be more efficient, just like the email, Excel, AutoCAD, Google and many others. 
 
 Since there are trillion-dollar companies doing their best to replace humans with a subcription to an LLM-powered plan, there is a
 good chance I might be wrong. On the other hand, I don't remember my grandmother ever complaining that she had to learn Excel
