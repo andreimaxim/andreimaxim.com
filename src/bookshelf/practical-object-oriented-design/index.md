@@ -1,6 +1,9 @@
 ---
 title: "Practical Object-Oriented Design"
 author: "Sandi Metz"
+year: 2018
+isbn: "9780134456478"
+status: "queued"
 ---
 
 ## Key Insights

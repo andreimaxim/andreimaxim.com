@@ -1,7 +1,9 @@
 ---
 title: "Code That Fits in Your Head"
 author: "Mark Seemann"
-olid: "OL38321987M"
+year: 2021
+isbn: "9780137464401"
+status: "queued"
 ---
 
 ## Key Insights

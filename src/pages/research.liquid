@@ -1,0 +1,43 @@
+---
+layout: default.liquid
+title: Research
+description: Notes generated with large language models and reviewed before publishing, each with its model and its sources.
+permalink: /research/
+---
+<section class="g">
+    <aside class="mg">
+        <b>Research</b>
+        {%- assign count = collections.research.size | default: 0 %}
+        <span>{{ count }} {% if count == 1 %}note{% else %}notes{% endif %}</span>
+        <a href="/disclaimer/">Editorial note</a>
+    </aside>
+    <div class="tx">
+        <h1>Research</h1>
+        <p class="standfirst">Notes generated with large language models, then read and checked before publishing. Each note says which model wrote it and lists the sources it was checked against.</p>
+    </div>
+</section>
+{%- if collections.researchTopics.size > 0 %}
+<section class="g">
+    <aside class="mg"><b>Topics</b></aside>
+    <div class="tx">
+        <p class="topics">
+            {%- for topic in collections.researchTopics %}
+            <a href="/research/topics/{{ topic.name | slugify }}/">{{ topic.name }}</a>{% unless forloop.last %} · {% endunless %}
+            {%- endfor %}
+        </p>
+    </div>
+</section>
+{%- endif %}
+<section class="g">
+    <aside class="mg"><b>All notes</b></aside>
+    <div class="tx rows">
+        {%- for note in collections.research reversed %}
+        <div class="row">
+            <span><a href="{{ note.url }}">{{ note.data.title }}</a>{% if note.data.model %}<span class="meta">{{ note.data.model }}{% if note.data.sources %} · {{ note.data.sources.size }} sources{% endif %}</span>{% endif %}</span>
+            <time datetime="{{ note.date | dateIso }}">{{ note.date | dateShort }}</time>
+        </div>
+        {%- else %}
+        <p class="empty">No notes yet.</p>
+        {%- endfor %}
+    </div>
+</section>

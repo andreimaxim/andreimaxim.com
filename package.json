@@ -7,7 +7,8 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "start": "eleventy --serve --watch"
+    "start": "eleventy --serve --watch",
+    "cover": "node scripts/cover.js"
   },
   "repository": {
     "type": "git",

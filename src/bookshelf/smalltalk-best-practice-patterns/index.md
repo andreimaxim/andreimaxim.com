@@ -1,6 +1,9 @@
 ---
 title: "Smalltalk Best Practice Patterns"
 author: "Kent Beck"
+year: 1996
+isbn: "9780134769042"
+status: "queued"
 ---
 
 ## Key Insights

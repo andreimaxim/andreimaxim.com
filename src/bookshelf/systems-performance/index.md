@@ -1,6 +1,9 @@
 ---
 title: "Systems Performance"
 author: "Brendan Gregg"
+year: 2020
+isbn: "9780136820154"
+status: "queued"
 ---
 
 ## Key Insights

@@ -1,21 +1,22 @@
 ---
 layout: default.liquid
 ---
-{%- assign book = books | where: "slug", page.fileSlug | first -%}
-<article class="book">
-    <header class="book-header">
-        <div class="book-cover">
-            <img src="/bookshelf/{{ book.slug }}/cover.jpg" alt="{{ book.title }} cover" loading="lazy" />
+<article class="entry g">
+    <aside class="mg">
+        <img src="{{ page.url }}cover.jpg" alt="Cover of {{ title }}" width="600" height="900"/>
+        <span class="pill">{{ status | default: "queued" }}</span>
+        {% if rating %}<span class="stars" aria-label="Rated {{ rating }} out of 5">{{ rating | stars }}</span>{% endif %}
+        <span>{{ author }}</span>
+        {% if year %}<span>{{ year }}</span>{% endif %}
+        {% if finished %}<span>read {{ finished | dateMonth }}</span>{% elsif started %}<span>since {{ started | dateReadable }}</span>{% endif %}
+        {% if isbn %}<span>ISBN {{ isbn }}</span>{% endif %}
+    </aside>
+    <div class="tx">
+        <h1>{{ title }}</h1>
+        {% if description %}<p class="standfirst">{{ description }}</p>{% endif %}
+        {% if verdict %}<blockquote class="verdict">{{ verdict }}</blockquote>{% endif %}
+        <div class="content">
+            {{ content }}
         </div>
-        <div class="book-info">
-            <h1>{{ book.title }}</h1>
-            <p class="book-author">{{ book.author }}</p>
-            <p class="book-year">{{ book.year }}</p>
-            <p class="book-isbn">ISBN {{ book.isbn }}</p>
-        </div>
-    </header>
-
-    <div class="content">
-        {{ content }}
     </div>
 </article>

@@ -1,6 +1,9 @@
 ---
 title: "Implementation Patterns"
 author: "Kent Beck"
+year: 2007
+isbn: "9780321413093"
+status: "queued"
 ---
 
 ## Key Insights

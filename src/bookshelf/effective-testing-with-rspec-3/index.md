@@ -1,6 +1,9 @@
 ---
 title: "Effective Testing with RSpec 3"
 author: "Myron Marston & Ian Dees"
+year: 2017
+isbn: "9781680501988"
+status: "queued"
 ---
 
 ## Key Insights

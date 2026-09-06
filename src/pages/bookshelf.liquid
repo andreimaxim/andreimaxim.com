@@ -1,14 +1,35 @@
 ---
-layout: page.liquid
+layout: default.liquid
 title: Bookshelf
+description: A reading journal for becoming a better software developer and a better human being.
 permalink: /bookshelf/
 ---
-<p class="books-intro">A reading journal for becoming a better software developer and a better human being.</p>
-
-<div class="bookshelf">
-    {%- for book in readBooks -%}
-    <a href="/bookshelf/{{ book.slug }}/" class="bookshelf-item">
-        <img class="book-cover" src="/bookshelf/{{ book.slug }}/cover.jpg" alt="{{ book.title }} cover" loading="lazy" />
-    </a>
-    {%- endfor -%}
-</div>
+<section class="g">
+    <aside class="mg">
+        <b>Bookshelf</b>
+        <span>{{ collections.shelf.size }} books</span>
+    </aside>
+    <div class="tx">
+        <h1>Bookshelf</h1>
+        <p class="standfirst">A reading journal for becoming a better software developer and a better human being.</p>
+    </div>
+</section>
+{%- for group in collections.booksByStatus %}
+<section class="g">
+    <aside class="mg">
+        <b>{{ group.name }}</b>
+        <span>{{ group.items.size }} {% if group.items.size == 1 %}book{% else %}books{% endif %}</span>
+    </aside>
+    <div class="tx">
+        <div class="shelf">
+            {%- for book in group.items %}
+            <a href="{{ book.url }}">
+                <img src="{{ book.url }}cover.jpg" alt="" width="600" height="900" loading="lazy"/>
+                <span class="shelf-title">{{ book.data.title }}</span>
+                <span class="shelf-author">{{ book.data.author }}</span>
+            </a>
+            {%- endfor %}
+        </div>
+    </div>
+</section>
+{%- endfor %}

@@ -1,6 +1,9 @@
 ---
 title: "Refactoring in Ruby"
 author: "William C. Wake & Kevin Rutherford"
+year: 2009
+isbn: "9780321545046"
+status: "queued"
 ---
 
 ## Key Insights

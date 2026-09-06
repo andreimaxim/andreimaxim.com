@@ -1,6 +1,9 @@
 ---
 title: "Balancing Coupling in Software Design"
 author: "Vlad Khononov"
+year: 2024
+isbn: "9780137353484"
+status: "queued"
 ---
 
 ## Key Insights

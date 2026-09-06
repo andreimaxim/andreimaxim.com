@@ -1,0 +1,32 @@
+---
+layout: default.liquid
+pagination:
+  data: collections.researchTopics
+  size: 1
+  alias: topic
+permalink: "/research/topics/{{ topic.name | slugify }}/"
+eleventyComputed:
+  title: "Research on {{ topic.name }}"
+  description: "Research notes on {{ topic.name }}."
+---
+<section class="g">
+    <aside class="mg">
+        <b>Research</b>
+        <span>{{ topic.items.size }} {% if topic.items.size == 1 %}note{% else %}notes{% endif %}</span>
+        <a href="/research/">All notes →</a>
+    </aside>
+    <div class="tx">
+        <h1>{{ topic.name }}</h1>
+    </div>
+</section>
+<section class="g">
+    <aside class="mg"></aside>
+    <div class="tx rows">
+        {%- for note in topic.items %}
+        <div class="row">
+            <span><a href="{{ note.url }}">{{ note.data.title }}</a>{% if note.data.model %}<span class="meta">{{ note.data.model }}</span>{% endif %}</span>
+            <time datetime="{{ note.date | dateIso }}">{{ note.date | dateShort }}</time>
+        </div>
+        {%- endfor %}
+    </div>
+</section>

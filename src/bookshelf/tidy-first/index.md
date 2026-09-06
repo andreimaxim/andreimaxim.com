@@ -1,6 +1,9 @@
 ---
 title: "Tidy First?"
 author: "Kent Beck"
+year: 2023
+isbn: "9781098151249"
+status: "queued"
 ---
 
 ## Key Insights

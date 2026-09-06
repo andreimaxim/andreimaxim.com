@@ -1,24 +1,79 @@
 ---
 layout: default.liquid
-title: Home
 ---
-<section class="home-hero">
-    <h1>Hello, I'm Andrei Maxim.</h1>
-    <p class="lede">
-        I'm a Ruby developer based in Romania. I've been building web applications for over a decade,
-        mostly with Ruby on Rails. I care about clean code, performance, and building software that's a joy to use.
-    </p>
-</section>
-<section class="home-latest">
-    <div class="section-heading">
-        <h2>Latest posts</h2>
+{%- assign lead = collections.latest | first -%}
+{%- assign lead_kind = lead | kind -%}
+{%- if lead %}
+<section class="g lead">
+    <aside class="mg">
+        <b>Latest</b>
+        {%- if lead_kind == "book" %}
+        <img src="{{ lead.url }}cover.jpg" alt="" width="600" height="900"/>
+        {%- endif %}
+        <span>{{ lead_kind }}</span>
+        <time datetime="{{ lead | entryDate | dateIso }}">{{ lead | entryDate | dateReadable }}</time>
+    </aside>
+    <div class="tx">
+        <h1><a href="{{ lead.url }}">{{ lead.data.title }}</a></h1>
+        {%- if lead_kind == "book" %}
+        <p class="standfirst">{{ lead.data.author }}{% if lead.data.year %}, {{ lead.data.year }}{% endif %}</p>
+        {%- if lead.data.verdict %}<p>{{ lead.data.verdict }}</p>{% endif %}
+        {%- elsif lead.data.description %}
+        <p class="standfirst">{{ lead.data.description }}</p>
+        {%- endif %}
+        <a class="more" href="{{ lead.url }}">{% case lead_kind %}{% when "book" %}Reading notes{% when "note" %}Read the note{% else %}Read the essay{% endcase %} →</a>
     </div>
-    <ol class="post-list">
-        {% for post in collections.posts reversed limit:10 %}
-        <li>
-            <a href="{{ post.url }}">{{ post.data.title }}</a>
-            <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
-        </li>
-        {% endfor %}
-    </ol>
 </section>
+{%- endif %}
+
+{%- assign posts = collections.posts | reverse | without: lead %}
+<section class="g">
+    <aside class="mg">
+        <b>Writing</b>
+        <span>{{ collections.posts.size }} essays</span>
+        <a href="/archive/">All writing →</a>
+    </aside>
+    <div class="tx rows">
+        {%- for post in posts limit: 4 %}
+        <div class="row"><a href="{{ post.url }}">{{ post.data.title }}</a><time datetime="{{ post.date | dateIso }}">{{ post.date | dateShort }}</time></div>
+        {%- endfor %}
+    </div>
+</section>
+
+{%- if collections.shelf.size > 0 %}
+<section class="g">
+    <aside class="mg">
+        <b>Bookshelf</b>
+        {%- for group in collections.booksByStatus %}{% if group.name == "reading" %}
+        <span>reading {{ group.items | map: "data" | map: "title" | join: ", " }}</span>
+        {%- endif %}{% endfor %}
+        <a href="/bookshelf/">The shelf →</a>
+    </aside>
+    <div class="tx">
+        <div class="covers">
+            {%- for book in collections.shelf limit: 6 %}
+            <a href="{{ book.url }}" title="{{ book.data.title }}"><img src="{{ book.url }}cover.jpg" alt="{{ book.data.title }}" width="600" height="900" loading="lazy"/></a>
+            {%- endfor %}
+            {%- if collections.shelf.size > 6 %}
+            <a class="more" href="/bookshelf/">+ {{ collections.shelf.size | minus: 6 }} more</a>
+            {%- endif %}
+        </div>
+    </div>
+</section>
+{%- endif %}
+
+{%- assign notes = collections.research | reverse | without: lead %}
+{%- if notes.size > 0 %}
+<section class="g">
+    <aside class="mg">
+        <b>Research</b>
+        <span>generated, then reviewed</span>
+        <a href="/research/">All notes →</a>
+    </aside>
+    <div class="tx rows">
+        {%- for note in notes limit: 3 %}
+        <div class="row"><a href="{{ note.url }}">{{ note.data.title }}</a><time datetime="{{ note.date | dateIso }}">{{ note.date | dateShort }}</time></div>
+        {%- endfor %}
+    </div>
+</section>
+{%- endif %}

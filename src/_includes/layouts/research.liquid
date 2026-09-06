@@ -1,0 +1,51 @@
+---
+layout: default.liquid
+---
+{%- assign related = collections.posts | related: topics -%}
+<article class="entry g">
+    <aside class="mg">
+        <b>Research</b>
+        <time datetime="{{ date | dateIso }}">{{ date | dateReadable }}</time>
+        {% if topics %}<span>{{ topics | join: ", " }}</span>{% endif %}
+        {% if model %}
+        <b>Model</b>
+        <span>{{ model }}</span>
+        {% if tool %}<span>{{ tool }}</span>{% endif %}
+        {% endif %}
+        {% if reviewed %}
+        <b>Reviewed</b>
+        <span>{{ site.title }}</span>
+        {% if updated %}<time datetime="{{ updated | dateIso }}">{{ updated | dateReadable }}</time>{% endif %}
+        {% endif %}
+        {% if sources %}
+        <b>Sources</b>
+        <span>{{ sources.size }}</span>
+        {% endif %}
+        <a href="/disclaimer/">Editorial note</a>
+    </aside>
+    <div class="tx">
+        <h1>{{ title }}</h1>
+        {% if description %}<p class="standfirst">{{ description }}</p>{% endif %}
+        <div class="content">
+            {{ content }}
+        </div>
+    </div>
+    {%- if sources %}
+    <aside class="mg"><b>Sources</b></aside>
+    <div class="tx">
+        <ol class="sources">
+            {%- for source in sources %}
+            <li>{% if source.url %}<a href="{{ source.url }}">{{ source.title }}</a>{% else %}{{ source.title }}{% endif %}</li>
+            {%- endfor %}
+        </ol>
+    </div>
+    {%- endif %}
+    {%- if related.size > 0 %}
+    <aside class="mg"><b>See also</b><span>essays on the same topics</span></aside>
+    <div class="tx rows">
+        {%- for post in related %}
+        <div class="row"><a href="{{ post.url }}">{{ post.data.title }}</a><time datetime="{{ post.date | dateIso }}">{{ post.date | dateShort }}</time></div>
+        {%- endfor %}
+    </div>
+    {%- endif %}
+</article>

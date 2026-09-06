@@ -1,7 +1,9 @@
 ---
 title: "Growing Object-Oriented Software, Guided by Tests"
 author: "Steve Freeman & Nat Pryce"
-olid: "OL24062395M"
+year: 2009
+isbn: "9780321503626"
+status: "queued"
 ---
 
 ## Key Insights

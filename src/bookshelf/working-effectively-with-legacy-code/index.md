@@ -1,6 +1,9 @@
 ---
 title: "Working Effectively with Legacy Code"
 author: "Michael Feathers"
+year: 2004
+isbn: "9780131177055"
+status: "queued"
 ---
 
 ## Key Insights

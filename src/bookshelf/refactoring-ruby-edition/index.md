@@ -1,6 +1,9 @@
 ---
 title: "Refactoring: Ruby Edition"
 author: "Jay Fields, Shane Harvie & Martin Fowler"
+year: 2009
+isbn: "9780321984135"
+status: "queued"
 ---
 
 ## Key Insights

@@ -1,0 +1,9 @@
+<header class="masthead">
+    <a href="/" class="masthead-name">{{ site.title }}</a>
+    <nav class="masthead-nav" aria-label="Main navigation">
+        <a href="/archive/"{% if page.url == "/archive/" or tags contains "posts" %} aria-current="page"{% endif %}>Writing</a>
+        <a href="/bookshelf/"{% if page.url contains "/bookshelf/" %} aria-current="page"{% endif %}>Bookshelf</a>
+        <a href="/research/"{% if page.url contains "/research/" %} aria-current="page"{% endif %}>Research</a>
+        <a href="/feed.xml">Feed</a>
+    </nav>
+</header>

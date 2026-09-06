@@ -1,6 +1,9 @@
 ---
 title: "Design Patterns in Ruby"
 author: "Russ Olsen"
+year: 2007
+isbn: "9780321490452"
+status: "queued"
 ---
 
 ## Key Insights

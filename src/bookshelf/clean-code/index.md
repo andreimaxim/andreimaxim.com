@@ -1,6 +1,9 @@
 ---
 title: "Clean Code"
 author: "Robert C. Martin"
+year: 2008
+isbn: "9780132350884"
+status: "queued"
 ---
 
 ## Key Insights

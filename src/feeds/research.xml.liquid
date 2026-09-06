@@ -1,0 +1,30 @@
+---
+layout: null
+permalink: /research.xml
+search: exclude
+---
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="feeds/pretty-atom-feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>{{ site.title | escape }}: research</title>
+  <subtitle>Notes generated with large language models and reviewed before publishing.</subtitle>
+  <link href="{{ site.baseUrl }}/research.xml" rel="self" />
+  <link href="{{ site.baseUrl }}/research/" />
+  {% assign count = collections.research.size | default: 0 %}
+  {% assign latest = collections.research | last %}
+  <updated>{% if count > 0 %}{{ latest.date | date: "%Y-%m-%dT%H:%M:%SZ" }}{% else %}{{ page.date | date: "%Y-%m-%dT%H:%M:%SZ" }}{% endif %}</updated>
+  <id>{{ site.baseUrl }}/research/</id>
+  <author>
+    <name>{{ site.title | escape }}</name>
+  </author>
+  {% for note in collections.research reversed limit:20 %}
+  <entry>
+    <title>{{ note.data.title | escape }}</title>
+    <link href="{{ site.baseUrl }}{{ note.url }}" />
+    <updated>{{ note.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+    <id>{{ site.baseUrl }}{{ note.url }}</id>
+    {% if note.data.description %}<summary>{{ note.data.description | escape }}</summary>{% endif %}
+    <content type="html">{{ note.templateContent | escape }}</content>
+  </entry>
+  {% endfor %}
+</feed>

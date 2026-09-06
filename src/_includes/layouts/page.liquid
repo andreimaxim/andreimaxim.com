@@ -1,9 +1,15 @@
 ---
 layout: default.liquid
 ---
-<article class="page">
-    <h1>{{ title }}</h1>
-    <div class="content">
-        {{ content }}
+<article class="entry g">
+    <aside class="mg">
+        {% if eyebrow %}<b>{{ eyebrow }}</b>{% endif %}
+    </aside>
+    <div class="tx">
+        <h1>{{ title }}</h1>
+        {% if description %}<p class="standfirst">{{ description }}</p>{% endif %}
+        <div class="content">
+            {{ content }}
+        </div>
     </div>
 </article>

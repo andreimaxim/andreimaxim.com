@@ -1,6 +1,9 @@
 ---
 title: "Learning Domain-Driven Design"
 author: "Vlad Khononov"
+year: 2021
+isbn: "9781098100131"
+status: "queued"
 ---
 
 ## Key Insights

@@ -1,17 +1,27 @@
 ---
 layout: default.liquid
 ---
-<article class="post">
-    <header class="post-header">
-        <h1>{{ title }}</h1>
+{%- assign related = collections.research | related: topics -%}
+<article class="entry g">
+    <aside class="mg">
+        <b>Essay</b>
         <time datetime="{{ date | dateIso }}">{{ date | dateReadable }}</time>
-    </header>
-
-    <div class="content">
-        {{ content }}
+        {% if topics %}<span>{{ topics | join: ", " }}</span>{% endif %}
+        <span>{{ content | words }}</span>
+    </aside>
+    <div class="tx">
+        <h1>{{ title }}</h1>
+        {% if description %}<p class="standfirst">{{ description }}</p>{% endif %}
+        <div class="content">
+            {{ content }}
+        </div>
     </div>
-
-    <footer class="post-footer">
-        <a href="/archive/" class="back-link">← Back to archive</a>
-    </footer>
+    {%- if related.size > 0 %}
+    <aside class="mg"><b>See also</b><span>research on the same topics</span></aside>
+    <div class="tx rows">
+        {%- for note in related %}
+        <div class="row"><a href="{{ note.url }}">{{ note.data.title }}</a><time datetime="{{ note.date | dateIso }}">{{ note.date | dateShort }}</time></div>
+        {%- endfor %}
+    </div>
+    {%- endif %}
 </article>

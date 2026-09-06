@@ -1,6 +1,9 @@
 ---
 title: "Test-Driven Development"
 author: "Kent Beck"
+year: 2002
+isbn: "9780321146533"
+status: "queued"
 ---
 
 ## Key Insights
